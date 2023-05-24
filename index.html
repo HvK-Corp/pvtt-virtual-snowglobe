@@ -43,6 +43,14 @@
       background-color: #fff;
       border: 2px solid #000;
       margin-top: 20px;
+      display: none;
+    }
+
+    /* Styles for the white paper background */
+    #paper {
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -51,7 +59,9 @@
     <span class="tag">From: Dakii</span>
     <span class="tag" style="bottom: 10px;">To: Anvii</span>
     <div class="box-content">
-      Happy Birthday Sweetheart here is a gift for you!
+      <!-- Content that appears after clicking the box -->
+      <img src="path/to/image.jpg" alt="Gift Image" />
+      <p>Surprise! I hope you like it.</p>
     </div>
   </div>
 
@@ -64,6 +74,11 @@
   
   <div id="snow-globe">
     <!-- The snow globe content goes here -->
+  </div>
+
+  <div id="paper">
+    <!-- Written message on a white paper background -->
+    <p>This is a special message just for you. It's written with love and wishes for a fantastic birthday. Enjoy your day to the fullest!</p>
   </div>
 
   <script>
@@ -85,16 +100,16 @@
         document.getElementById("countdown").style.display = "block";
         document.getElementById("countdown").innerHTML = "Surprise coming in: " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds";
       } else {
-        // Display the message
+        // Display the message and snow globe
         document.getElementById("gift-box").style.display = "none";
         document.getElementById("message").style.display = "block";
+        document.getElementById("snow-globe").style.display = "block";
       }
     }
     
-    // Function to hide the message and reveal the snow globe
+    // Function to hide the message
     function hideMessage() {
       document.getElementById("message").style.display = "none";
-      document.getElementById("snow-globe").style.display = "block";
     }
   </script>
 </body>
