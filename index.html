@@ -7,7 +7,7 @@
     #gift-box {
       width: 200px;
       height: 200px;
-      background-color: black;
+      background-color: #e9c46a;
       border: 2px solid #000;
       display: flex;
       flex-direction: column;
@@ -15,21 +15,26 @@
       justify-content: center;
       cursor: pointer;
       position: relative;
+      margin: 0 auto;
+      margin-top: 100px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
     
     #gift-box .tag {
       position: absolute;
       top: 10px;
       left: 10px;
-      color: white;
-      background-color: red;
+      color: #fff;
+      background-color: #000;
       padding: 5px;
       font-weight: bold;
       font-size: 12px;
+      border-radius: 5px;
     }
     
-    /* Styles for the countdown timer and message */
-    #countdown, #message {
+    /* Styles for the message */
+    #message {
       display: none;
       text-align: center;
       font-size: 24px;
@@ -39,66 +44,81 @@
     
     /* Styles for the snow globe */
     #snow-globe {
+      display: none;
       width: 300px;
       height: 300px;
       background-color: #fff;
       border: 2px solid #000;
       margin-top: 20px;
+      margin: 0 auto;
       text-align: center;
       font-family: 'Times New Roman', Times, serif;
+      position: relative;
+      border-radius: 50%;
+      overflow: hidden;
     }
 
     #snow-globe img {
       max-width: 100%;
       max-height: 100%;
     }
+
+    #snow-globe p {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: 'Arial', sans-serif;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
   </style>
 </head>
 <body>
-  <div id="gift-box" onclick="openGiftBox()">
-    <span class="tag">From: Dakii</span>
-    <span class="tag" style="bottom: 10px;">To: Anvii</span>
-    <div class="box-content">
-      Click the box for your surprise present!
+  <div class="wrapper">
+    <h1>Virtual Snow Globe</h1>
+    <div id="gift-box" onclick="openGiftBox()">
+      <span class="tag">From: Dakii</span>
+      <span class="tag" style="bottom: 10px;">To: Anvii</span>
+      <div class="box-content">
+        Click the box for your surprise present!
+      </div>
+    </div>
+
+    <div id="message" onclick="hideMessage()">
+      <!-- Your personalized message goes here -->
+      M'lady, click the box to open and reveal the gift.
+    </div>
+    
+    <div id="snow-globe">
+      <!-- The snow globe content goes here -->
+      <img src="[base64-encoded-image]" alt="Snow Globe" />
+      <p>Anveshika</p>
     </div>
   </div>
 
-  <div id="countdown"></div>
-  
-  <div id="message" onclick="hideMessage()">
-    <!-- Your personalized message goes here -->
-    M'lady click the box to open & reveal the gift
-  </div>
-  
-  <div id="snow-globe">
-    <!-- The snow globe content goes here -->
-    <img src="[base64-encoded-image]" alt="Snow Globe" />
-    <p style="position: absolute; bottom: 10px;">Anveshika</p>
-  </div>
-
   <script>
-    // Function to open the gift box and show the countdown or message
+    // Function to open the gift box and show the message and snow globe
     function openGiftBox() {
-      var currentDate = new Date();
-      var targetDate = new Date("July 14, 2023");
-      
-      if (currentDate < targetDate) {
-        // Calculate the remaining time
-        var remainingTime = targetDate - currentDate;
-        var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-        
-        // Display the countdown
-        document.getElementById("gift-box").style.display = "none";
-        document.getElementById("countdown").style.display = "block";
-        document.getElementById("countdown").innerHTML = "Surprise coming in: " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds";
-      } else {
-        // Display the message
-        document.getElementById("gift-box").style.display = "none";
-        document.getElementById("message").style.display = "block";
-      }
+      document.getElementById("gift-box").style.display = "none";
+      document.getElementById("message").style.display = "block";
+      document.getElementById("snow-globe").style.display = "block";
     }
     
     // Function to hide the message and reveal the snow globe
