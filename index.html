@@ -7,7 +7,7 @@
     #gift-box {
       width: 200px;
       height: 200px;
-      background-color: #e9c46a;
+      background-color: black;
       border: 2px solid #000;
       display: flex;
       flex-direction: column;
@@ -43,14 +43,22 @@
       background-color: #fff;
       border: 2px solid #000;
       margin-top: 20px;
-      display: none;
+      position: relative;
     }
-
-    /* Styles for the white paper background */
-    #paper {
-      background-color: #fff;
-      padding: 20px;
-      margin-top: 20px;
+    
+    #snow-globe .name {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    #snow-globe img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -59,9 +67,7 @@
     <span class="tag">From: Dakii</span>
     <span class="tag" style="bottom: 10px;">To: Anvii</span>
     <div class="box-content">
-      <!-- Content that appears after clicking the box -->
-      <img src="path/to/image.jpg" alt="Gift Image" />
-      <p>Surprise! I hope you like it.</p>
+      Click the box for your surprise present!
     </div>
   </div>
 
@@ -69,16 +75,14 @@
   
   <div id="message" onclick="hideMessage()">
     <!-- Your personalized message goes here -->
-    M'lady click the box to open & reveal the gift
+    <div id="paper" style="background-color: white; padding: 20px; font-family: 'Times New Roman', serif;">
+      <!-- Your written message content -->
+    </div>
   </div>
   
   <div id="snow-globe">
-    <!-- The snow globe content goes here -->
-  </div>
-
-  <div id="paper">
-    <!-- Written message on a white paper background -->
-    <p>This is a special message just for you. It's written with love and wishes for a fantastic birthday. Enjoy your day to the fullest!</p>
+    <span class="name">Anveshika</span>
+    <img src="[base64-encoded-image]" alt="Snow Globe Image">
   </div>
 
   <script>
@@ -100,16 +104,16 @@
         document.getElementById("countdown").style.display = "block";
         document.getElementById("countdown").innerHTML = "Surprise coming in: " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds";
       } else {
-        // Display the message and snow globe
+        // Display the message
         document.getElementById("gift-box").style.display = "none";
         document.getElementById("message").style.display = "block";
-        document.getElementById("snow-globe").style.display = "block";
       }
     }
     
-    // Function to hide the message
+    // Function to hide the message and reveal the snow globe
     function hideMessage() {
       document.getElementById("message").style.display = "none";
+      document.getElementById("snow-globe").style.display = "block";
     }
   </script>
 </body>
