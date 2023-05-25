@@ -73,9 +73,9 @@
 <body>
   <div class="wrapper">
     <h1>Virtual Snow Globe</h1>
-    <a href="snow-globe.html">
-      <img id="gift-box" src="gift-box.png" alt="Gift Box" />
-    </a>
+    <div id="gift-box" onclick="openSnowGlobe()">
+      <img src="gift-box.png" alt="Gift Box" />
+    </div>
 
     <div id="message" onclick="hideMessage()">
       <!-- Your personalized message goes here -->
@@ -90,6 +90,13 @@
   </div>
 
   <script>
+    // Function to open the snow globe
+    function openSnowGlobe() {
+      document.getElementById("gift-box").style.display = "none";
+      document.getElementById("message").style.display = "none";
+      document.getElementById("snow-globe").style.display = "block";
+    }
+    
     // Function to hide the message and reveal the snow globe
     function hideMessage() {
       document.getElementById("message").style.display = "none";
