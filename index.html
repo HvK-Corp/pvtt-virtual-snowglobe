@@ -5,27 +5,12 @@
   <style>
     /* Styles for the gift box */
     #gift-box {
-      width: 200px;
-      height: 200px;
-      background-image: url('gift-box.png');
-      background-size: cover;
-      border: none;
+      width: 300px;
+      height: 300px;
       cursor: pointer;
       position: relative;
       margin: 0 auto;
       margin-top: 100px;
-    }
-    
-    #gift-box .tag {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      color: #fff;
-      background-color: #000;
-      padding: 5px;
-      font-weight: bold;
-      font-size: 12px;
-      border-radius: 5px;
     }
     
     /* Styles for the message */
@@ -88,10 +73,9 @@
 <body>
   <div class="wrapper">
     <h1>Virtual Snow Globe</h1>
-    <div id="gift-box" onclick="openGiftBox()">
-      <span class="tag">From: Dakii</span>
-      <span class="tag" style="bottom: 10px;">To: Anvii</span>
-    </div>
+    <a href="snow-globe.html">
+      <img id="gift-box" src="path/to/gift-box.png" alt="Gift Box" />
+    </a>
 
     <div id="message" onclick="hideMessage()">
       <!-- Your personalized message goes here -->
@@ -106,13 +90,6 @@
   </div>
 
   <script>
-    // Function to open the gift box and show the message and snow globe
-    function openGiftBox() {
-      document.getElementById("gift-box").style.display = "none";
-      document.getElementById("message").style.display = "block";
-      document.getElementById("snow-globe").style.display = "block";
-    }
-    
     // Function to hide the message and reveal the snow globe
     function hideMessage() {
       document.getElementById("message").style.display = "none";
