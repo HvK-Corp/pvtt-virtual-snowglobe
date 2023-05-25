@@ -5,8 +5,8 @@
   <style>
     /* Styles for the gift box */
     #gift-box {
-      width: 80px; /* Adjust the width as needed */
-      height: 80px; /* Adjust the height as needed */
+      width: 60px; /* Adjust the width as needed */
+      height: 60px; /* Adjust the height as needed */
       cursor: pointer;
       position: absolute;
       left: 50%;
@@ -53,7 +53,7 @@
     }
 
     body {
-      background-image: url('background.png');
+      background-image: '/background.png';
       background-repeat: no-repeat;
       background-size: cover;
       text-align: center;
@@ -76,7 +76,7 @@
 <body>
   <div class="wrapper">
     <div id="gift-box" onclick="openSnowGlobe()">
-      <img src="gift-box.png" alt="Gift Box" />
+      <img src="/gift-box.png" alt="Gift Box" />
     </div>
 
     <div id="message" onclick="hideMessage()">
