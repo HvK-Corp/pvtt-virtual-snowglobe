@@ -7,23 +7,13 @@
     #gift-box {
       width: 200px;
       height: 200px;
-      background-color: #000;
-      border: 2px solid #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      background-image: url('gift-box.png');
+      background-size: cover;
+      border: none;
       cursor: pointer;
       position: relative;
       margin: 0 auto;
       margin-top: 100px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-
-    #gift-box .emoji {
-      font-size: 100px;
-      color: #000;
     }
     
     #gift-box .tag {
@@ -37,14 +27,14 @@
       font-size: 12px;
       border-radius: 5px;
     }
-
+    
     /* Styles for the message */
     #message {
       display: none;
       text-align: center;
       font-size: 24px;
       margin-top: 20px;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Courier New', Courier, monospace;
     }
     
     /* Styles for the snow globe */
@@ -57,7 +47,7 @@
       margin-top: 20px;
       margin: 0 auto;
       text-align: center;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       position: relative;
       border-radius: 50%;
       overflow: hidden;
@@ -99,11 +89,8 @@
   <div class="wrapper">
     <h1>Virtual Snow Globe</h1>
     <div id="gift-box" onclick="openGiftBox()">
-      <div class="emoji">&#127873;</div>
-      <div class="tag" style="color: #fff;">
-        From: Dakii <br>
-        To: Anvii
-      </div>
+      <span class="tag">From: Dakii</span>
+      <span class="tag" style="bottom: 10px;">To: Anvii</span>
     </div>
 
     <div id="message" onclick="hideMessage()">
