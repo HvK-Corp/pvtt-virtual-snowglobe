@@ -5,14 +5,15 @@
   <style>
     /* Styles for the gift box */
     #gift-box {
-      width: auto;
-      height: auto;
+      width: 150px; /* Adjust the width as needed */
+      height: 150px; /* Adjust the height as needed */
       cursor: pointer;
       position: absolute;
-      margin: 0 auto;
-      margin-top: 50vh;
-      transform: translateY(-50%);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
+    
     /* Styles for the message */
     #message {
       display: none;
@@ -52,7 +53,9 @@
     }
 
     body {
-      background-color: #f8f9fa;
+      background-image: url('background.png');
+      background-repeat: no-repeat;
+      background-size: cover;
       text-align: center;
       padding-top: 50px;
       margin: 0;
