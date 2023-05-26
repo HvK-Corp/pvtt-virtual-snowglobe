@@ -52,31 +52,21 @@
       font-size: 18px;
     }
 
-     body {
+    body {
       text-align: center;
       padding-top: 50px;
-       margin: 0;
+      margin: 0;
       height: 100vh;
-       overflow: hidden;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
       background: linear-gradient(to bottom, #00008B, #87CEEB);
-     }
-
-     .background-container {
-      position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
       background-image: url('background.png');
       background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-       z-index: -1;
+      background-size: cover;
     }
-    
+
     .wrapper {
       display: flex;
       flex-direction: column;
@@ -96,14 +86,13 @@
       }
 
       body {
-        background-size: cover; /* Use cover for the background image */
-        overflow: auto; /* Enable scrolling on mobile devices */
+        background-image: url('background.png');
+        background-size: cover;
       }
     }
   </style>
 </head>
 <body>
-  <div class="background-container"></div>
   <div class="wrapper">
     <div id="gift-box" onclick="openSnowGlobe()">
       <img src="gift-box.png" alt="Gift Box" width="240" height="240" />
