@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html><head>
   <title>Virtual Snow Globe</title>
   <style>
     /* Styles for the gift box */
@@ -81,13 +80,37 @@
       align-items: center;
     }
 
+    /* Styles for mobile devices */
+    @media (max-width: 768px) {
+      #gift-box,
+      #message,
+      #snow-globe {
+        display: none;
+      }
+
+      .warning-message {
+        font-size: 24px;
+        color: "darkslategrey";
+        font-weight: bolder;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+      }
+    }
+
+    /* Styles for non-mobile devices (PCs) */
+    @media (min-width: 769px) {
+      .warning-message {
+        display: none;
+      }
+    }
+
   </style>
 </head>
 <body>
   <div class="background-container"></div>
   <div class="wrapper">
     <div id="gift-box" onclick="openSnowGlobe()">
-      <img src="gift-box.png" alt="Gift Box" width="240" height="240" />
+      <img src="gift-box.png" alt="Gift Box" width="240" height="240">
     </div>
 
     <div id="message" onclick="hideMessage()">
@@ -97,9 +120,11 @@
     
     <div id="snow-globe">
       <!-- The snow globe content goes here -->
-      <img src="[base64-encoded-image]" alt="Snow Globe" />
+      <img src="[base64-encoded-image]" alt="Snow Globe">
       <p>Anveshika</p>
     </div>
+
+    <div class="warning-message">Please switch to a computer to proceed.</div>
   </div>
 
   <script>
@@ -116,5 +141,6 @@
       document.getElementById("snow-globe").style.display = "block";
     }
   </script>
-</body>
-</html>
+
+
+</body></html>
