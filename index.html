@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <title>Virtual Snow Globe</title>
   <style>
     /* Styles for the gift box */
@@ -13,7 +13,7 @@
       top: 74%;
       transform: translate(-50%, -50%);
     }
-    
+
     /* Styles for the message */
     #message {
       display: none;
@@ -22,7 +22,7 @@
       margin-top: 20px;
       font-family: 'Courier New', Courier, monospace;
     }
-    
+
     /* Styles for the snow globe */
     #snow-globe {
       display: none;
@@ -52,52 +52,71 @@
       font-size: 18px;
     }
 
-    body {
-      margin: 0;
+     body {
+      text-align: center;
+      padding-top: 50px;
+       margin: 0;
       height: 100vh;
-      overflow: hidden;
+       overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
       background: linear-gradient(to bottom, #00008B, #87CEEB);
-    }
+     }
 
-    .background-container {
+     .background-container {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
       background-image: url('background.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
-      z-index: -1;
+       z-index: -1;
     }
-
+    
     .wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
+      height: 100%;
+      justify-content: center;
     }
 
+    @media (max-width: 768px) {
+      /* Styles for mobile devices */
+
+      /* Adjust the gift box position */
+      #gift-box {
+        left: 67%;
+        top: 66%;
+        transform: translate(-50%, -50%);
+      }
+
+      body {
+        background-size: cover; /* Use cover for the background image */
+        overflow: auto; /* Enable scrolling on mobile devices */
+      }
+    }
   </style>
 </head>
 <body>
   <div class="background-container"></div>
   <div class="wrapper">
     <div id="gift-box" onclick="openSnowGlobe()">
-      <img src="gift-box.png" alt="Gift Box" width="240" height="240"/>
+      <img src="gift-box.png" alt="Gift Box" width="240" height="240" />
     </div>
 
     <div id="message" onclick="hideMessage()">
       <!-- Your personalized message goes here -->
       M'lady, click the box to open and reveal the gift.
     </div>
-    
+
     <div id="snow-globe">
       <!-- The snow globe content goes here -->
-      <img src="[base64-encoded-image]" alt="Snow Globe">
+      <img src="[base64-encoded-image]" alt="Snow Globe" />
       <p>Anveshika</p>
     </div>
   </div>
@@ -109,14 +128,12 @@
       document.getElementById("message").style.display = "none";
       document.getElementById("snow-globe").style.display = "block";
     }
-    
+
     // Function to hide the message and reveal the snow globe
     function hideMessage() {
       document.getElementById("message").style.display = "none";
       document.getElementById("snow-globe").style.display = "block";
     }
   </script>
-
-
 </body>
 </html>
