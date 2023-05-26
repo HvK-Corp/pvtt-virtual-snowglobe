@@ -57,14 +57,14 @@
       padding-top: 50px;
       margin: 0;
       height: 100vh;
-      overflow: hidden;
+      overflow: auto; /* Enable scrolling on mobile devices */
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: linear-gradient(to bottom, #00008B, #87CEEB);
+      background: linear-gradient(to bottom, #00008B, #87CEEB);
       background-image: url('background.png');
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       background-position: center;
     }
 
@@ -87,8 +87,9 @@
       }
 
       body {
-        background-image: url('background.png');
-        background-size: contain;
+        background-image: url('background-mobile.png');
+        background-size: cover;
+        background-position: center;
       }
     }
   </style>
