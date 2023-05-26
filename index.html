@@ -62,9 +62,13 @@
       justify-content: center;
       align-items: center;
       background: linear-gradient(to bottom, #00008B, #87CEEB);
+      z-index: -1;
+    }
+
+    .background-container {
       background-image: url('background.png');
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
     }
 
@@ -86,18 +90,19 @@
         transform: translate(-50%, -50%);
       }
 
-      body {
+      .background-container {
         background-image: url('background-mobile.png');
-        background-size: cover;
+        background-size: contain;
         background-position: center;
       }
     }
   </style>
 </head>
 <body>
+  <div class="background-container"></div>
   <div class="wrapper">
     <div id="gift-box" onclick="openSnowGlobe()">
-      <img src="gift-box.png" alt="Gift Box" width="240" height="240" />
+      <img src="gift-box.png" alt="Gift Box" width="240" height="240">
     </div>
 
     <div id="message" onclick="hideMessage()">
@@ -107,7 +112,7 @@
 
     <div id="snow-globe">
       <!-- The snow globe content goes here -->
-      <img src="[base64-encoded-image]" alt="Snow Globe" />
+      <img src="[base64-encoded-image]" alt="Snow Globe">
       <p>Anveshika</p>
     </div>
   </div>
