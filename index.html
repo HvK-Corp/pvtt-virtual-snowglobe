@@ -62,13 +62,9 @@
       justify-content: center;
       align-items: center;
       background: linear-gradient(to bottom, #00008B, #87CEEB);
-      z-index: -1;
-    }
-
-    .background-container {
       background-image: url('background.png');
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       background-position: center;
     }
 
@@ -85,21 +81,18 @@
 
       /* Adjust the gift box position */
       #gift-box {
-        left: 67%;
-        top: 66%;
+        left: 50%;
+        top: 50%;
         transform: translate(-50%, -50%);
       }
 
-      .background-container {
+      body {
         background-image: url('background-mobile.png');
-        background-size: contain;
-        background-position: center;
       }
     }
   </style>
 </head>
 <body>
-  <div class="background-container"></div>
   <div class="wrapper">
     <div id="gift-box" onclick="openSnowGlobe()">
       <img src="gift-box.png" alt="Gift Box" width="240" height="240">
@@ -110,9 +103,9 @@
       M'lady, click the box to open and reveal the gift.
     </div>
 
-    <div id="snow-globe" style="display: none;">
+    <div id="snow-globe">
       <!-- The snow globe content goes here -->
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Snowglobe.jpg/320px-Snowglobe.jpg" alt="Snow Globe">
+      <img src="[base64-encoded-image]" alt="Snow Globe">
       <p>Anveshika</p>
     </div>
   </div>
@@ -120,4 +113,16 @@
   <script>
     // Function to open the snow globe
     function openSnowGlobe() {
-     
+      document.getElementById("gift-box").style.display = "none";
+      document.getElementById("message").style.display = "none";
+      document.getElementById("snow-globe").style.display = "block";
+    }
+
+    // Function to hide the message and reveal the snow globe
+    function hideMessage() {
+      document.getElementById("message").style.display = "none";
+      document.getElementById("snow-globe").style.display = "block";
+    }
+  </script>
+</body>
+</html>
