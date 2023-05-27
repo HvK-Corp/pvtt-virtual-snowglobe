@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html><head>
+<html>
+<head>
   <title>Virtual Snow Globe</title>
   <style>
     /* Styles for the gift box */
@@ -12,16 +13,22 @@
       top: 73%;
       transform: translate(-50%, -50%);
     }
-    
+
     /* Styles for the message */
     #message {
       display: none;
       text-align: center;
       font-size: 24px;
       margin-top: 20px;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Old English Text MT', serif; /* Use a font that resembles handwritten text */
+      background-color: beige; /* Paper-like background color */
+      padding: 20px; /* Add some padding to give it a paper-like appearance */
+      border: 2px solid brown; /* Border around the message */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+      width: 70%; /* Adjust the width as needed */
+      margin: 0 auto; /* Center the message horizontally */
     }
-    
+
     /* Styles for the snow globe */
     #snow-globe {
       display: none;
@@ -49,6 +56,30 @@
       width: 100%;
       text-align: center;
       font-size: 18px;
+    }
+
+     /* Styles for mobile devices */
+    @media (max-width: 800px) {
+      #gift-box,
+      #message,
+      #snow-globe {
+        display: none;
+      }
+
+      .warning-message {
+        font-size: 24px;
+        color: "darkslategrey";
+        font-weight: bolder;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+      }
+    }
+
+    /* Styles for non-mobile devices (PCs) */
+    @media (min-width: 800px) {
+      .warning-message {
+        display: none;
+      }
     }
 
     body {
@@ -80,59 +111,43 @@
       align-items: center;
     }
 
-    /* Styles for mobile devices */
-    @media (max-width: 768px) {
-      #gift-box,
-      #message,
-      #snow-globe {
-        display: none;
-      }
-
-      .warning-message {
-        font-size: 24px;
-        color: "darkslategrey";
-        font-weight: bolder;
-        text-align: center;
-        font-family: 'Courier New', Courier, monospace;
-      }
-    }
-
-    /* Styles for non-mobile devices (PCs) */
-    @media (min-width: 769px) {
-      .warning-message {
-        display: none;
-      }
-    }
-
   </style>
 </head>
 <body>
   <div class="background-container"></div>
   <div class="wrapper">
     <div id="gift-box" onclick="openSnowGlobe()">
-      <img src="gift-box.png" alt="Gift Box" width="240" height="240">
+      <img src="gift-box.png" alt="Gift Box" width="240" height="240" />
     </div>
 
     <div id="message" onclick="hideMessage()">
       <!-- Your personalized message goes here -->
-      M'lady, click the box to open and reveal the gift.
+      <div class="letter-content">
+        <p>Dear Anveshika,</p>
+        <p>It is a year of our friendship & your 3rd birthday with me :D and you've been the bestest friend I ever had, so today I want to wish you and give you something.</p>
+        <p>On this 15th birthday of yours I wish you to have a great, sweet and smiling life ahead, you're now near to get into the real world and hope you achieve what you wish.</p>
+        <p>I wish you a Happy Birthday & since we can't meet but I really wanted to give you something, so here I've a snow globe for you and I hope you love it</p>
+        <p>I'll buy myself a chocolate I don't want to ruin your mood for the 2nd time on the same date and month of another year in a row ヾ(≧▽≦*)o</p>
+        <p>Your Bestfriend</p>
+        <p>Daksh</p>
+      </div>
     </div>
     
     <div id="snow-globe">
       <!-- The snow globe content goes here -->
-      <img src="[base64-encoded-image]" alt="Snow Globe">
+      <img src="[base64-encoded-image]" alt="Snow Globe" />
       <p>Anveshika</p>
     </div>
-
-    <div class="warning-message">Please switch to a computer to proceed.</div>
   </div>
 
+  <div class="warning-message">Please switch to a computer to proceed.</div>
+  
   <script>
     // Function to open the snow globe
     function openSnowGlobe() {
       document.getElementById("gift-box").style.display = "none";
-      document.getElementById("message").style.display = "none";
-      document.getElementById("snow-globe").style.display = "block";
+      document.getElementById("message").style.display = "block";
+      document.getElementById("snow-globe").style.display = "none";
     }
     
     // Function to hide the message and reveal the snow globe
@@ -141,6 +156,5 @@
       document.getElementById("snow-globe").style.display = "block";
     }
   </script>
-
-
-</body></html>
+</body>
+</html>
