@@ -12,6 +12,7 @@
       left: 59%;
       top: 73%;
       transform: translate(-50%, -50%);
+      display: none; /* Hide the gift box by default */
     }
 
     /* Styles for the message */
@@ -60,7 +61,6 @@
 
      /* Styles for mobile devices */
     @media (max-width: 800px) {
-      #gift-box,
       #message,
       #snow-globe {
         display: none;
@@ -80,6 +80,10 @@
     @media (min-width: 800px) {
       .warning-message {
         display: none; /* Hide the warning message */
+      }
+      
+      #gift-box {
+        display: block; /* Show the gift box on computers */
       }
     }
 
@@ -126,10 +130,10 @@
       <div class="letter-content">
         <p>Dear Anveshika,</p>
         <p>It is a year of our friendship & your 3rd birthday with me :D and you've been the bestest friend I ever had, so today I want to wish you and give you something.</p>
-        <p>On this 15th birthday of yours I wish you to have a great, sweet and smiling life ahead, you're now near to get into the real world and hope you achieve what you wish.</p>
+        <p>On this 15th birthday of yours I wish you to have a great, sweet and smiling life ahead, you're now near to getting into the real world so I also hope you achieve a great success (in singing I know ^_^).</p>
         <p>I wish you a Happy Birthday & since we can't meet but I really wanted to give you something, so here I've a snow globe for you and I hope you love it</p>
         <p>I'll buy myself a chocolate I don't want to ruin your mood for the 2nd time on the same date and month of another year in a row ヾ(≧▽≦*)o</p>
-        <p>Your Bestfriend</p>
+        <p>Your Bestfriend,</p>
         <p>Daksh</p>
       </div>
     </div>
@@ -155,6 +159,13 @@
     function hideMessage() {
       document.getElementById("message").style.display = "none";
       document.getElementById("snow-globe").style.display = "block";
+    }
+
+    // Check if the device is mobile and show/hide elements accordingly
+    if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+      document.getElementById("message").style.display = "none";
+      document.getElementById("snow-globe").style.display = "none";
+      document.getElementsByClassName("warning-message")[0].style.display = "block";
     }
   </script>
 </body>
