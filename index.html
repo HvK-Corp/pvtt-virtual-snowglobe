@@ -68,17 +68,18 @@
 
       .warning-message {
         font-size: 24px;
-        color: "darkslategrey";
+        color: darkslategrey;
         font-weight: bolder;
         text-align: center;
         font-family: 'Courier New', Courier, monospace;
+        display: block; /* Show the warning message */
       }
     }
 
     /* Styles for non-mobile devices (PCs) */
     @media (min-width: 800px) {
       .warning-message {
-        display: none;
+        display: none; /* Hide the warning message */
       }
     }
 
