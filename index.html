@@ -59,6 +59,35 @@
       font-size: 18px;
     }
 
+    /* Styles for mobile devices */
+    @media (max-width: 800px) {
+      #gift-box,
+      #message,
+      #snow-globe {
+        display: none;
+      }
+
+      .warning-message {
+        font-size: 32px;
+        color: darkslategrey;
+        font-weight: bolder;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        display: block; /* Show the warning message on mobile devices */
+      }
+    }
+
+    /* Styles for non-mobile devices (PCs) */
+    @media (min-width: 800px) {
+      .warning-message {
+        display: none; /* Hide the warning message on non-mobile devices */
+      }
+      
+      #gift-box {
+        display: block; /* Show the gift box on non-mobile devices (PCs) */
+      }
+    }
+
     body {
       margin: 0;
       height: 100vh;
@@ -93,24 +122,6 @@
     /* Styles for blur effect */
     .blur {
       filter: blur(5px); /* Apply a blur effect */
-    }
-
-    /* Styles for mobile devices */
-    @media (max-width: 800px) {
-      #gift-box,
-      #message,
-      #snow-globe {
-        display: none;
-      }
-
-      .warning-message {
-        font-size: 32px;
-        color: darkslategrey;
-        font-weight: bolder;
-        text-align: center;
-        font-family: 'Courier New', Courier, monospace;
-        display: block; /* Show the warning message on mobile devices */
-      }
     }
   </style>
 </head>
@@ -167,8 +178,6 @@
       document.getElementById("message").style.display = "none";
       document.getElementById("snow-globe").style.display = "none";
       document.getElementsByClassName("warning-message")[0].style.display = "block";
-    } else {
-      document.getElementById("gift-box").style.display = "block"; /* Show the gift box on non-mobile devices */
     }
   </script>
 </body>
