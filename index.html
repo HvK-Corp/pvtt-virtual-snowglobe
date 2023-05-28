@@ -72,38 +72,38 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
-.objects {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
+    .objects {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
 
-.objects img {
-  position: absolute;
-  z-index: 3;
-}
+    .objects img {
+      position: absolute;
+      z-index: 3;
+    }
 
-.objects .candy1 {
-  top: 100px;
-  left: 30px;
-}
+    .objects .candy1 {
+      top: 100px;
+      left: 30px;
+    }
 
-.objects .candy2 {
-  top: 100px;
-  left: 70px;
-}
+    .objects .candy2 {
+      top: 100px;
+      left: 70px;
+    }
 
-.objects .chocolate1 {
-  top: 100px;
-  left: -100px;
-}
+    .objects .chocolate1 {
+      top: 100px;
+      left: -100px;
+    }
 
-.objects .chocolate2 {
-  top: 100px;
-  left: -50px;
-}
+    .objects .chocolate2 {
+      top: 100px;
+      left: -50px;
+    }
 
     /* Styles for mobile devices */
     @media (max-width: 800px) {
@@ -214,7 +214,7 @@
         document.getElementById("gift-box").style.display = "none";
         document.getElementById("message").style.display = "block";
         document.getElementById("snow-globe").style.display = "none";
-        document.getElementsByClassName("background-container").style.display = "none";
+        document.getElementsByClassName("background-container")[0].style.display = "none"; // Fixed index out of bounds error
       }
 
       // Function to hide the message and reveal the snow globe
