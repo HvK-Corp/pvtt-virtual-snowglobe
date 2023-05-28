@@ -96,7 +96,8 @@
       justify-content: center;
       align-items: center;
       background: linear-gradient(to bottom, #00008B, #87CEEB);
-          }
+      filter: blur(0); /* Initial state: no blur */
+    }
 
     .background-container {
       position: absolute;
@@ -109,6 +110,7 @@
       background-size: contain;
       background-position: center;
       z-index: -1;
+      filter: blur(0); /* Initial state: no blur */
     }
 
     .wrapper {
@@ -117,7 +119,55 @@
       align-items: center;
     }
 
-    </style>
+    /* Styles for blur effect */
+    .blur {
+      filter: blur(5px); /* Apply a blur effect */
+    }
+    .objects {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.objects .candy {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.objects .chocolate {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: brown;
+  border-radius: 50%;
+}
+
+.objects .candy1 {
+  top: 40px;
+  left: 60px;
+}
+
+.objects .candy2 {
+  top: 80px;
+  left: 100px;
+}
+
+.objects .chocolate1 {
+  top: 120px;
+  left: 140px;
+}
+
+.objects .chocolate2 {
+  top: 160px;
+  left: 180px;
+}
+
+  </style>
 </head>
 <body>
   <div class="background-container"></div>
@@ -127,22 +177,30 @@
     </div>
 
     <div id="message" onclick="hideMessage()">
-      <!-- Your personalized message goes here -->
       <div class="letter-content">
         <p>Dear Anveshika,</p>
         <p>It is a year of our friendship & your 3rd birthday with me :D and you've been the bestest friend I ever had, so today I want to wish you and give you something.</p>
-        <p>On this 15th birthday of yours I wish you to have a great, sweet and smiling life ahead, you're now near to getting into the real world so I also hope you achieve a great success (in singing I know ^_^).</p>
-        <p>I wish you a Happy Birthday & since we can't meet but I really wanted to give you something, so here I've a snow globe for you and I hope you love it</p>
-        <p>I'll buy myself a chocolate I don't want to ruin your mood for the 2nd time on the same date and month of another year in a row ヾ(≧▽≦*)o</p>
+        <p>On this 15th birthday of yours, I wish you to have a great, sweet, and smiling life ahead. You're now near to getting into the real world, so I also hope you achieve great success (in singing I know ^_^).</p>
+        <p>I wish you a Happy Birthday & since we can't meet, but I really wanted to give you something, so here I have a snow globe for you, and I hope you love it.</p>
+        <p>I'll buy myself a chocolate. I don't want to ruin your mood for the 2nd time on the same date and month of another year in a row ヾ(≧▽≦*)o</p>
         <p>Your Bestfriend,</p>
         <p>Daksh</p>
       </div>
     </div>
     
     <div id="snow-globe">
-      <!-- The snow globe content goes here -->
-      <img src="[base64-encoded-image]" alt="Snow Globe" />
-      <p>Anveshika</p>
+      <div class="snow-globe-content">
+        <div class="globe">
+          <img src="glass-snow-globe.png" alt="Snow Globe" width="300" height="300" />
+          <div class="snow">
+            <div id="particles-js"></div>
+          </div>
+          <img src="https://en.wikipedia.org/wiki/Jungkook#/media/File:Jeon_Jung-kook_performing_on_July_27,_2013.jpg" alt="Favorite Singer" width="150" height="150" />
+          <div class="objects">
+          </div>
+        </div>
+        <p>Anveshika</p>
+      </div>
     </div>
   </div>
 
@@ -150,27 +208,62 @@
   
   <script>
     // Function to open the snow globe
-function openSnowGlobe() {
-  document.getElementById("gift-box").style.display = "none";
-  document.getElementById("message").style.display = "block";
-  document.getElementById("snow-globe").style.display = "none";
-  document.getElementsByClassName("background-container")[0].style.display = "none"; /* Hide the background image */
-}
-
-// Function to hide the message and reveal the snow globe
-function hideMessage() {
-  document.getElementById("message").style.display = "none";
-  document.getElementById("snow-globe").style.display = "block";
-  document.getElementsByClassName("background-container")[0].style.display = "block"; /* Show the background image */
-}
-
-    // Check if the device is mobile and show/hide elements accordingly
-    if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+    function openSnowGlobe() {
       document.getElementById("gift-box").style.display = "none";
       document.getElementById("message").style.display = "none";
-      document.getElementById("snow-globe").style.display = "none";
-      document.getElementsByClassName("warning-message")[0].style.display = "block";
+      document.getElementById("snow-globe").style.display = "block";
+      document.body.classList.add("blur"); /* Add blur effect to the body */
+      document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+    }
+    
+    // Function to hide the message and reveal the snow globe
+    function hideMessage() {
+      document.getElementById("message").style.display = "none";
+      document.getElementById("snow-globe").style.display = "block";
+      document.body.classList.add("blur"); /* Add blur effect to the body */
+      document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
     }
   </script>
+  <script src="particles/particles.js"></script>
+<script>
+  particlesJS("particles-js", {
+    particles: {
+      number: {
+        value: 100, // Adjust the number of particles
+        density: {
+          enable: true,
+          value_area: 800, // Adjust the area in which particles are scattered
+        },
+      },
+      color: {
+        value: "#ffffff", // Adjust the color of particles
+      },
+      shape: {
+        type: "circle", // Adjust the shape of particles
+      },
+      opacity: {
+        value: 0.5, // Adjust the opacity of particles
+      },
+      size: {
+        value: 3, // Adjust the size of particles
+      },
+      line_linked: {
+        enable: false,
+      },
+      move: {
+        enable: true,
+        speed: 1, // Adjust the speed of particles
+      },
+    },
+    interactivity: {
+      events: {
+        onhover: {
+          enable: false,
+        },
+      },
+    },
+  });
+</script>
+
 </body>
 </html>
