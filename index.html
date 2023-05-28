@@ -62,7 +62,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('Glass.jg'); /* Replace 'glass-effect.png' with the path to your desired glass effect image */
+      background-image: url('Glass.jpg'); /* Replace 'glass-effect.png' with the path to your desired glass effect image */
       background-repeat: no-repeat;
       background-size: cover;
       z-index: 1;
@@ -204,49 +204,6 @@
         <p>Daksh</p>
       </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      particlesJS("snow", {
-        particles: {
-          number: {
-            value: 100, // Adjust the number of particles
-            density: {
-              enable: true,
-              value_area: 800, // Adjust the area in which particles are scattered
-            },
-          },
-          color: {
-            value: "#ffffff", // Adjust the color of particles
-          },
-          shape: {
-            type: "circle", // Adjust the shape of particles
-          },
-          opacity: {
-            value: 0.5, // Adjust the opacity of particles
-          },
-          size: {
-            value: 3, // Adjust the size of particles
-          },
-          line_linked: {
-            enable: false,
-          },
-          move: {
-            enable: true,
-            speed: 1, // Adjust the speed of particles
-          },
-        },
-        interactivity: {
-          events: {
-            onhover: {
-              enable: false,
-            },
-          },
-        },
-      });
-    });
-    </script>
     <div id="snow-globe">
       <div class="snow-globe-content">
         <div class="snow" id="snow"></div>
@@ -289,5 +246,47 @@
         document.getElementsByClassName("warning-message")[0].style.display = "block";
       }
     </script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    particlesJS("snow", {
+      particles: {
+        number: {
+          value: 100, // Adjust the number of particles
+          density: {
+            enable: true,
+            value_area: 800, // Adjust the area in which particles are scattered
+          },
+        },
+        color: {
+          value: "#ffffff", // Adjust the color of particles
+        },
+        shape: {
+          type: "circle", // Adjust the shape of particles
+        },
+        opacity: {
+          value: 0.5, // Adjust the opacity of particles
+        },
+        size: {
+          value: 3, // Adjust the size of particles
+        },
+        line_linked: {
+          enable: false,
+        },
+        move: {
+          enable: true,
+          speed: 1, // Adjust the speed of particles
+        },
+      },
+      interactivity: {
+        events: {
+          onhover: {
+            enable: false,
+          },
+        },
+      },
+    });
+  });
+</script>
 </body>
 </html>
