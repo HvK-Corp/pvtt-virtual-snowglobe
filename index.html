@@ -113,14 +113,14 @@
       filter: blur(0); /* Initial state: no blur */
     }
 
-    .blur .background-container {
+.blur .background-container:not(#snow-globe) {
   filter: blur(5px); /* Apply a blur effect to the background only */
 }
 
-.blur #snow-globe .snow-globe-content .globe {
+.blur #snow-globe {
   filter: none; /* Remove the blur effect from the snow globe */
 }
-    
+
     .wrapper {
       display: flex;
       flex-direction: column;
