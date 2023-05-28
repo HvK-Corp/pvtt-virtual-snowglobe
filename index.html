@@ -96,8 +96,7 @@
       justify-content: center;
       align-items: center;
       background: linear-gradient(to bottom, #00008B, #87CEEB);
-      filter: blur(0); /* Initial state: no blur */
-    }
+          }
 
     .background-container {
       position: absolute;
@@ -110,7 +109,6 @@
       background-size: contain;
       background-position: center;
       z-index: -1;
-      filter: blur(0); /* Initial state: no blur */
     }
 
     .wrapper {
@@ -119,11 +117,7 @@
       align-items: center;
     }
 
-    /* Styles for blur effect */
-    .blur {
-      filter: blur(5px); /* Apply a blur effect */
-    }
-  </style>
+    </style>
 </head>
 <body>
   <div class="background-container"></div>
@@ -156,21 +150,19 @@
   
   <script>
     // Function to open the snow globe
-    function openSnowGlobe() {
-      document.getElementById("gift-box").style.display = "none";
-      document.getElementById("message").style.display = "block";
-      document.getElementById("snow-globe").style.display = "none";
-      document.body.classList.add("blur"); /* Add blur effect to the body */
-      document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
-    }
-    
-    // Function to hide the message and reveal the snow globe
-    function hideMessage() {
-      document.getElementById("message").style.display = "none";
-      document.getElementById("snow-globe").style.display = "block";
-      document.body.classList.remove("blur"); /* Remove blur effect from the body */
-      document.getElementsByClassName("background-container")[0].classList.remove("blur"); /* Remove blur effect from the background image */
-    }
+function openSnowGlobe() {
+  document.getElementById("gift-box").style.display = "none";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("snow-globe").style.display = "none";
+  document.getElementsByClassName("background-container")[0].style.display = "none"; /* Hide the background image */
+}
+
+// Function to hide the message and reveal the snow globe
+function hideMessage() {
+  document.getElementById("message").style.display = "none";
+  document.getElementById("snow-globe").style.display = "block";
+  document.getElementsByClassName("background-container")[0].style.display = "block"; /* Show the background image */
+}
 
     // Check if the device is mobile and show/hide elements accordingly
     if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
