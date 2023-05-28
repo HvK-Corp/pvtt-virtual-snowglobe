@@ -173,7 +173,7 @@
       align-items: center;
     }
     
-     #snow-globe:before {
+    #snow-globe:before {
       content: "";
       position: absolute;
       top: 0;
@@ -247,46 +247,52 @@
       }
     </script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    particlesJS("snow", {
-      particles: {
-        number: {
-          value: 100, // Adjust the number of particles
-          density: {
-            enable: true,
-            value_area: 800, // Adjust the area in which particles are scattered
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        particlesJS("snow", {
+          particles: {
+            number: {
+              value: 100, // Adjust the number of particles
+              density: {
+                enable: true,
+                value_area: 800, // Adjust the area in which particles are scattered
+              },
+            },
+            color: {
+              value: "#ffffff", // Adjust the color of particles
+            },
+            shape: {
+              type: "circle", // Adjust the shape of particles
+            },
+            opacity: {
+              value: 0.5, // Adjust the opacity of particles
+            },
+            size: {
+              value: 3, // Adjust the size of particles
+            },
+            line_linked: {
+              enable: false,
+            },
+            move: {
+              enable: true,
+              speed: 1, // Adjust the speed of particles
+            },
           },
-        },
-        color: {
-          value: "#ffffff", // Adjust the color of particles
-        },
-        shape: {
-          type: "circle", // Adjust the shape of particles
-        },
-        opacity: {
-          value: 0.5, // Adjust the opacity of particles
-        },
-        size: {
-          value: 3, // Adjust the size of particles
-        },
-        line_linked: {
-          enable: false,
-        },
-        move: {
-          enable: true,
-          speed: 1, // Adjust the speed of particles
-        },
-      },
-      interactivity: {
-        events: {
-          onhover: {
-            enable: false,
+          interactivity: {
+            events: {
+              onhover: {
+                enable: false,
+              },
+            },
           },
-        },
-      },
-    });
-  });
-</script>
+        });
+      });
+    </script>
+  </div>
+  <script>
+    const confettiSettings = { target: 'my-canvas' };
+    const confetti = new ConfettiGenerator(confettiSettings);
+    confetti.render();
+  </script>
 </body>
 </html>
