@@ -188,8 +188,8 @@
       align-items: center;
     }
   </style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <body>
   <div class="background-container"></div>
   <div class="wrapper">
@@ -211,9 +211,9 @@
 
     <div id="snow-globe">
       <div class="snow-globe-content">
+        <div class="snow" id="snow"></div>
         <div class="globe">
           <div id="glass-effect"></div>
-         <div class="snow" id="snow"></div>
           <div class="objects">
             <img class="candy candy1" src="melody.png" alt="Candy" />
             <img class="candy candy2" src="melody.png" alt="Candy" />
@@ -253,6 +253,7 @@
       }
     </script>
  <script>
+ window.addEventListener('DOMContentLoaded', function() {
   particlesJS("snow", {
     particles: {
       number: {
@@ -290,6 +291,7 @@
       },
     },
   });
+ });
 </script>
 </body>
 </html>
