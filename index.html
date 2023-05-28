@@ -221,6 +221,7 @@
       function hideMessage() {
         document.getElementById("message").style.display = "none";
         document.getElementById("snow-globe").style.display = "block";
+        document.getElementsByClassName("background-container")[0].style.display = "none";
         document.body.classList.add("blur"); /* Add blur effect to the body */
         document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
       }
