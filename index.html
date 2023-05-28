@@ -31,85 +31,89 @@
     }
 
    #snow-globe {
-  display: none;
-  width: 300px;
-  height: 300px;
-  margin-top: 20px;
-  margin: 0 auto;
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif;
-  position: relative;
-  border-radius: 50%;
-  overflow: hidden;
-}
+      display: none;
+      width: 300px;
+      height: 300px;
+      margin-top: 20px;
+      margin: 0 auto;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      position: relative;
+      border-radius: 50%;
+      overflow: hidden;
+    }
 
-#snow-globe img {
-  max-width: 100%;
-  max-height: 100%;
-}
+    #snow-globe img {
+      max-width: 100%;
+      max-height: 100%;
+    }
 
-#snow-globe p {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-}
+    #snow-globe p {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
 
-.objects {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
+    .objects {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
 
-.objects .candy {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
-}
+    .objects .candy,
+    .objects .chocolate {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
 
-.objects .chocolate {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: brown;
-  border-radius: 50%;
-}
+    .objects .candy {
+      background-color: red;
+      transform: rotate(45deg); /* Rotate the candy objects */
+    }
 
-.objects .candy1 {
-  top: 40px;
-  left: 60px;
-}
+    .objects .chocolate {
+      background-color: brown;
+      transform: rotate(-45deg); /* Rotate the chocolate objects */
+    }
 
-.objects .candy2 {
-  top: 80px;
-  left: 100px;
-}
+    .objects .candy1 {
+      top: 40px;
+      left: 60px;
+    }
 
-.objects .chocolate1 {
-  top: 120px;
-  left: 140px;
-}
+    .objects .candy2 {
+      top: 80px;
+      left: 100px;
+    }
 
-.objects .chocolate2 {
-  top: 160px;
-  left: 180px;
-}
+    .objects .chocolate1 {
+      top: 120px;
+      left: 140px;
+    }
 
+    .objects .chocolate2 {
+      top: 160px;
+      left: 180px;
+    }
 
     #glass-effect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.2); /* Adjust the background color and opacity */
-  border-radius: 50%;
-}
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.2); /* Adjust the background color and opacity */
+      border-radius: 50%;
+    }
 
     /* Styles for mobile devices */
     @media (max-width: 800px) {
@@ -134,7 +138,7 @@
       .warning-message {
         display: none; /* Hide the warning message on non-mobile devices */
       }
-      
+
       #gift-box {
         display: block; /* Show the gift box on non-mobile devices (PCs) */
       }
@@ -165,20 +169,19 @@
       filter: blur(0); /* Initial state: no blur */
     }
 
-.blur .background-container:not(#snow-globe) {
-  filter: blur(5px); /* Apply a blur effect to the background only */
-}
+    .blur .background-container:not(#snow-globe) {
+      filter: blur(5px); /* Apply a blur effect to the background only */
+    }
 
-.blur #snow-globe {
-  filter: none; /* Remove the blur effect from the snow globe */
-}
+    .blur #snow-globe {
+      filter: none; /* Remove the blur effect from the snow globe */
+    }
 
     .wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
   </style>
 </head>
 <body>
@@ -191,100 +194,102 @@
     <div id="message" onclick="hideMessage()">
       <div class="letter-content">
         <p>Dear Anveshika,</p>
-        <p>It is a year of our friendship & your 3rd birthday with me :D and you've been the bestest friend I ever had, so today I want to wish you and give you something.</p>
-        <p>On this 15th birthday of yours, I wish you to have a great, sweet, and smiling life ahead. You're now near to getting into the real world, so I also hope you achieve great success (in singing I know ^_^).</p>
-        <p>I wish you a Happy Birthday & since we can't meet, but I really wanted to give you something, so here I have a snow globe for you, and I hope you love it.</p>
-        <p>I'll buy myself a chocolate. I don't want to ruin your mood for the 2nd time on the same date and month of another year in a row ヾ(≧▽≦*)o</p>
-        <p>Your Bestfriend,</p>
+        <p>It has been a year of our friendship, and it's your 3rd birthday with me! You've been the best friend I ever had, so today I want to wish you and give you something.</p>
+        <p>On your 15th birthday, I wish you a great, sweet, and smiling life ahead. Soon you'll step into the real world, I hope you achieve great success (especially in singing, I know ^_^).</p>
+        <p>Happy Birthday! Since we can't meet, I wanted to give you something special. Here, I have a snow globe for you, and I hope you love it.</p>
+        <p>I'll buy myself a chocolate. I don't want to ruin your mood for the second time on the same date and month for another year in a row ヾ(≧▽≦*)o</p>
+        <p>Your Best Friend,</p>
         <p>Daksh</p>
       </div>
     </div>
-    
+
     <div id="snow-globe">
-  <div class="snow-globe-content">
-    <div class="globe">
-      <div id="glass-effect"></div>
-      <div class="snow">
-        <div id="particles-js"></div>
-      </div>
-      <img src="JK.jpg" alt="Jungkook" width="150" height="150" />
-      <div class="objects">
-        <div class="candy candy1"></div>
-        <div class="candy candy2"></div>
-        <div class="chocolate chocolate1"></div>
-        <div class="chocolate chocolate2"></div>
+      <div class="snow-globe-content">
+        <div class="globe">
+          <div id="glass-effect"></div>
+          <div class="snow">
+            <div id="particles-js"></div>
+          </div>
+          <img src="JK.jpg" alt="Jungkook" width="150" height="150" />
+          <div class="objects">
+            <div class="candy candy1"></div>
+            <div class="candy candy2"></div>
+            <div class="chocolate chocolate1"></div>
+            <div class="chocolate chocolate2"></div>
+          </div>
+        </div>
+        <p>Anveshika</p>
       </div>
     </div>
-    <p>Anveshika</p>
-  </div>
-</div>
 
-  <div class="warning-message">Please switch to a computer to proceed.</div>
-  
-  <script>
-    // Function to open the snow globe
-    function openSnowGlobe() {
-      document.getElementById("gift-box").style.display = "none";
-      document.getElementById("message").style.display = "block";
-      document.getElementById("snow-globe").style.display = "none";
-      document.getElementsByClassName("background-container").style.display = "none"; 
-    }
-    
-    // Function to hide the message and reveal the snow globe
-    function hideMessage() {
-      document.getElementById("message").style.display = "none";
-      document.getElementById("snow-globe").style.display = "block";
-      document.body.classList.add("blur"); /* Add blur effect to the body */
-      document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
-    }
+    <div class="warning-message">Please switch to a computer to proceed.</div>
+
+    <script>
+      // Function to open the snow globe
+      function openSnowGlobe() {
+        document.getElementById("gift-box").style.display = "none";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("snow-globe").style.display = "none";
+        document.getElementsByClassName("background-container").style.display = "none";
+      }
+
+      // Function to hide the message and reveal the snow globe
+      function hideMessage() {
+        document.getElementById("message").style.display = "none";
+        document.getElementById("snow-globe").style.display = "block";
+        document.body.classList.add("blur"); /* Add blur effect to the body */
+        document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+      }
+
       // Check if the device is mobile and show/hide elements accordingly
-    if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
-      document.getElementById("gift-box").style.display = "none";
-      document.getElementById("message").style.display = "none";
-      document.getElementById("snow-globe").style.display = "none";
-      document.getElementsByClassName("warning-message")[0].style.display = "block";
-    }
-  </script>
-  <script src="particles/particles.js"></script>
-<script>
-  particlesJS("particles-js", {
-    particles: {
-      number: {
-        value: 100, // Adjust the number of particles
-        density: {
-          enable: true,
-          value_area: 800, // Adjust the area in which particles are scattered
+      if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+        document.getElementById("gift-box").style.display = "none";
+        document.getElementById("message").style.display = "none";
+        document.getElementById("snow-globe").style.display = "none";
+        document.getElementsByClassName("warning-message")[0].style.display = "block";
+      }
+    </script>
+    <script src="particles/particles.js"></script>
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: {
+            value: 100, // Adjust the number of particles
+            density: {
+              enable: true,
+              value_area: 800, // Adjust the area in which particles are scattered
+            },
+          },
+          color: {
+            value: "#ffffff", // Adjust the color of particles
+          },
+          shape: {
+            type: "circle", // Adjust the shape of particles
+          },
+          opacity: {
+            value: 0.5, // Adjust the opacity of particles
+          },
+          size: {
+            value: 3, // Adjust the size of particles
+          },
+          line_linked: {
+            enable: false,
+          },
+          move: {
+            enable: true,
+            speed: 1, // Adjust the speed of particles
+          },
         },
-      },
-      color: {
-        value: "#ffffff", // Adjust the color of particles
-      },
-      shape: {
-        type: "circle", // Adjust the shape of particles
-      },
-      opacity: {
-        value: 0.5, // Adjust the opacity of particles
-      },
-      size: {
-        value: 3, // Adjust the size of particles
-      },
-      line_linked: {
-        enable: false,
-      },
-      move: {
-        enable: true,
-        speed: 1, // Adjust the speed of particles
-      },
-    },
-    interactivity: {
-      events: {
-        onhover: {
-          enable: false,
+        interactivity: {
+          events: {
+            onhover: {
+              enable: false,
+            },
+          },
         },
-      },
-    },
-  });
-</script>
+      });
+    </script>
 
+  </div>
 </body>
 </html>
