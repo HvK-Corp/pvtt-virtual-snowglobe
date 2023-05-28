@@ -30,14 +30,14 @@
       margin: 0 auto; /* Center the message horizontally */
     }
 
-  #snow-globe {
-  background-image: url('JK.jpg'); /* Replace 'snow-globe-background.jpg' with the path to your desired background image */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: none;
-      width: 300px;
-      height: 300px;
+    #snow-globe {
+      background-image: url('JK.jpg'); /* Replace 'snow-globe-background.jpg' with the path to your desired background image */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      display: none;
+      width: 400px; /* Adjust the width as needed */
+      height: 400px; /* Adjust the height as needed */
       margin-top: 20px;
       margin: 0 auto;
       text-align: center;
@@ -46,27 +46,27 @@
       border-radius: 50%;
       overflow: hidden;
     }
-    
+
     .snow-globe-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%; /* Adjust the width as needed */
-  height: 80%; /* Adjust the height as needed */
-}
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%; /* Adjust the width as needed */
+      height: 80%; /* Adjust the height as needed */
+    }
 
     #glass-effect {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
-  background-image: url('Glass.png'); /* Replace 'glass-effect.png' with the path to your desired glass effect image */
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 1;
-}
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('Glass.png'); /* Replace 'glass-effect.png' with the path to your desired glass effect image */
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 1;
+    }
 
     #snow-globe img {
       max-width: 100%;
@@ -84,63 +84,53 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
- .objects {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.objects .candy,
-.objects .chocolate {
-  position: absolute;
-  width: 30px; /* Adjust the width as needed */
-  height: 30px; /* Adjust the height as needed */
-  border-radius: 50%;
-}
-
-.objects .candy {
-  background-color: red;
-  transform: rotate(45deg);
-}
-
-.objects .chocolate {
-  background-color: brown;
-  transform: rotate(-45deg);
-}
-
-.objects .candy1 {
-  top: 40px;
-  left: 60px;
-}
-
-.objects .candy2 {
-  top: 80px;
-  left: 100px;
-}
-
-.objects .chocolate1 {
-  top: 120px;
-  left: 140px;
-}
-
-.objects .chocolate2 {
-  top: 160px;
-  left: 180px;
-}
-
-    #glass-effect {
+    .objects {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.2); /* Adjust the background color and opacity */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .objects .candy,
+    .objects .chocolate {
+      position: absolute;
+      width: 20px; /* Adjust the width as needed */
+      height: 20px; /* Adjust the height as needed */
       border-radius: 50%;
     }
 
+    .objects .candy {
+      background-color: #FF0000;
+      transform: rotate(45deg);
+    }
+
+    .objects .chocolate {
+      background-color: #8B4513;
+      transform: rotate(-45deg);
+    }
+
+    .objects .candy1 {
+      top: 40px;
+      left: 60px;
+    }
+
+    .objects .candy2 {
+      top: 80px;
+      left: 100px;
+    }
+
+    .objects .chocolate1 {
+      top: 120px;
+      left: 140px;
+    }
+
+    .objects .chocolate2 {
+      top: 160px;
+      left: 180px;
+    }
+    
     /* Styles for mobile devices */
     @media (max-width: 800px) {
       #gift-box,
@@ -274,47 +264,45 @@
         document.getElementsByClassName("warning-message")[0].style.display = "block";
       }
     </script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-      particlesJS("particles-js", {
-        particles: {
-          number: {
-            value: 100, // Adjust the number of particles
-            density: {
-              enable: true,
-              value_area: 800, // Adjust the area in which particles are scattered
-            },
+   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 100, // Adjust the number of particles
+          density: {
+            enable: true,
+            value_area: 800, // Adjust the area in which particles are scattered
           },
-          color: {
-            value: "#ffffff", // Adjust the color of particles
-          },
-          shape: {
-            type: "circle", // Adjust the shape of particles
-          },
-          opacity: {
-            value: 0.5, // Adjust the opacity of particles
-          },
-          size: {
-            value: 3, // Adjust the size of particles
-          },
-          line_linked: {
+        },
+        color: {
+          value: "#ffffff", // Adjust the color of particles
+        },
+        shape: {
+          type: "circle", // Adjust the shape of particles
+        },
+        opacity: {
+          value: 0.5, // Adjust the opacity of particles
+        },
+        size: {
+          value: 3, // Adjust the size of particles
+        },
+        line_linked: {
+          enable: false,
+        },
+        move: {
+          enable: true,
+          speed: 1, // Adjust the speed of particles
+        },
+      },
+      interactivity: {
+        events: {
+          onhover: {
             enable: false,
           },
-          move: {
-            enable: true,
-            speed: 1, // Adjust the speed of particles
-          },
         },
-        interactivity: {
-          events: {
-            onhover: {
-              enable: false,
-            },
-          },
-        },
-      });
-    </script>
-
-  </div>
+      },
+    });
+  </script>
 </body>
 </html>
