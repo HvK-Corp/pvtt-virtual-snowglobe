@@ -113,6 +113,14 @@
       filter: blur(0); /* Initial state: no blur */
     }
 
+    .blur .background-container {
+  filter: blur(5px); /* Apply a blur effect to the background only */
+}
+
+.blur #snow-globe {
+  filter: none; /* Remove the blur effect from the snow globe */
+}
+    
     .wrapper {
       display: flex;
       flex-direction: column;
@@ -210,10 +218,9 @@
     // Function to open the snow globe
     function openSnowGlobe() {
       document.getElementById("gift-box").style.display = "none";
-      document.getElementById("message").style.display = "none";
-      document.getElementById("snow-globe").style.display = "block";
-      document.body.classList.add("blur"); /* Add blur effect to the body */
-      document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+      document.getElementById("message").style.display = "block";
+      document.getElementById("snow-globe").style.display = "none";
+      document.getElementsByClassName("background-container").style.display = "none"; 
     }
     
     // Function to hide the message and reveal the snow globe
@@ -222,6 +229,13 @@
       document.getElementById("snow-globe").style.display = "block";
       document.body.classList.add("blur"); /* Add blur effect to the body */
       document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+    }
+      // Check if the device is mobile and show/hide elements accordingly
+    if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+      document.getElementById("gift-box").style.display = "none";
+      document.getElementById("message").style.display = "none";
+      document.getElementById("snow-globe").style.display = "none";
+      document.getElementsByClassName("warning-message")[0].style.display = "block";
     }
   </script>
   <script src="particles/particles.js"></script>
