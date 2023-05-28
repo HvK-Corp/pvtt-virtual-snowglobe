@@ -30,8 +30,12 @@
       margin: 0 auto; /* Center the message horizontally */
     }
 
-   #snow-globe {
-      display: none;
+  #snow-globe {
+  background-image: url('JK.jpg'); /* Replace 'snow-globe-background.jpg' with the path to your desired background image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: none;
       width: 300px;
       height: 300px;
       margin-top: 20px;
@@ -42,6 +46,27 @@
       border-radius: 50%;
       overflow: hidden;
     }
+    
+    .snow-globe-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Adjust the width as needed */
+  height: 80%; /* Adjust the height as needed */
+}
+
+    #glass-effect {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background-image: url('Glass.png'); /* Replace 'glass-effect.png' with the path to your desired glass effect image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
 
     #snow-globe img {
       max-width: 100%;
@@ -59,51 +84,52 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
-    .objects {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
+ .objects {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
 
-    .objects .candy,
-    .objects .chocolate {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-    }
+.objects .candy,
+.objects .chocolate {
+  position: absolute;
+  width: 30px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+  border-radius: 50%;
+}
 
-    .objects .candy {
-      background-color: red;
-      transform: rotate(45deg); /* Rotate the candy objects */
-    }
+.objects .candy {
+  background-color: red;
+  transform: rotate(45deg);
+}
 
-    .objects .chocolate {
-      background-color: brown;
-      transform: rotate(-45deg); /* Rotate the chocolate objects */
-    }
+.objects .chocolate {
+  background-color: brown;
+  transform: rotate(-45deg);
+}
 
-    .objects .candy1 {
-      top: 40px;
-      left: 60px;
-    }
+.objects .candy1 {
+  top: 40px;
+  left: 60px;
+}
 
-    .objects .candy2 {
-      top: 80px;
-      left: 100px;
-    }
+.objects .candy2 {
+  top: 80px;
+  left: 100px;
+}
 
-    .objects .chocolate1 {
-      top: 120px;
-      left: 140px;
-    }
+.objects .chocolate1 {
+  top: 120px;
+  left: 140px;
+}
 
-    .objects .chocolate2 {
-      top: 160px;
-      left: 180px;
-    }
+.objects .chocolate2 {
+  top: 160px;
+  left: 180px;
+}
 
     #glass-effect {
       position: absolute;
@@ -210,7 +236,6 @@
           <div class="snow">
             <div id="particles-js"></div>
           </div>
-          <img src="JK.jpg" alt="Jungkook" width="150" height="150" />
           <div class="objects">
             <div class="candy candy1"></div>
             <div class="candy candy2"></div>
@@ -249,7 +274,7 @@
         document.getElementsByClassName("warning-message")[0].style.display = "block";
       }
     </script>
-    <script src="particles/particles.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
       particlesJS("particles-js", {
         particles: {
