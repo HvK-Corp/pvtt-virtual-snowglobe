@@ -31,7 +31,7 @@
     }
 
     #snow-globe {
-      background-image: url('JK.jpg'); /* Replace 'snow-globe-background.jpg' with the path to your desired background image */
+      background-image: url('JK.jpg'); /* Replace 'JK.jpg' with the path to your desired background image */
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -71,40 +71,7 @@
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
-
-    .objects {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
-
-    .objects img {
-      position: absolute;
-      z-index: 3;
-    }
-
-    .objects .candy1 {
-      top: 100px;
-      left: 30px;
-    }
-
-    .objects .candy2 {
-      top: 100px;
-      left: 70px;
-    }
-
-    .objects .chocolate1 {
-      top: 100px;
-      left: -100px;
-    }
-
-    .objects .chocolate2 {
-      top: 100px;
-      left: -50px;
-    }
-
+    
     /* Styles for mobile devices */
     @media (max-width: 800px) {
       #gift-box,
@@ -172,7 +139,7 @@
       flex-direction: column;
       align-items: center;
     }
-    
+
     #snow-globe:before {
       content: "";
       position: absolute;
@@ -183,7 +150,7 @@
       background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity and color as desired */
       z-index: 1;
     }
-    
+
   </style>
 </head>
 <body>
@@ -208,12 +175,7 @@
       <div class="snow-globe-content">
         <div class="snow" id="snow"></div>
         <div class="globe">
-          <div class="objects">
-            <img class="candy candy1" src="melody.png" alt="Candy" />
-            <img class="candy candy2" src="melody.png" alt="Candy" />
-            <img class="chocolate chocolate1" src="silk.png" alt="Chocolate" />
-            <img class="chocolate chocolate2" src="silk.png" alt="Chocolate" />
-          </div>
+          <p>Virtual Snow Globe</p>
         </div>
       </div>
     </div>
@@ -289,10 +251,5 @@
       });
     </script>
   </div>
-  <script>
-    const confettiSettings = { target: 'my-canvas' };
-    const confetti = new ConfettiGenerator(confettiSettings);
-    confetti.render();
-  </script>
 </body>
 </html>
