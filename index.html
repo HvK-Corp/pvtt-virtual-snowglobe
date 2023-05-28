@@ -95,8 +95,6 @@
 
 .objects img {
   position: absolute;
-  width: 40px; /* Adjust the width as needed */
-  height: 40px; /* Adjust the height as needed */
   z-index: 3;
 }
 
@@ -188,7 +186,6 @@
       align-items: center;
     }
   </style>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
   <div class="background-container"></div>
@@ -209,6 +206,48 @@
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      particlesJS("snow", {
+        particles: {
+          number: {
+            value: 100, // Adjust the number of particles
+            density: {
+              enable: true,
+              value_area: 800, // Adjust the area in which particles are scattered
+            },
+          },
+          color: {
+            value: "#ffffff", // Adjust the color of particles
+          },
+          shape: {
+            type: "circle", // Adjust the shape of particles
+          },
+          opacity: {
+            value: 0.5, // Adjust the opacity of particles
+          },
+          size: {
+            value: 3, // Adjust the size of particles
+          },
+          line_linked: {
+            enable: false,
+          },
+          move: {
+            enable: true,
+            speed: 1, // Adjust the speed of particles
+          },
+        },
+        interactivity: {
+          events: {
+            onhover: {
+              enable: false,
+            },
+          },
+        },
+      });
+    });
+    
     <div id="snow-globe">
       <div class="snow-globe-content">
         <div class="snow" id="snow"></div>
@@ -252,46 +291,6 @@
         document.getElementsByClassName("warning-message")[0].style.display = "block";
       }
     </script>
- <script>
- window.addEventListener('DOMContentLoaded', function() {
-  particlesJS("snow", {
-    particles: {
-      number: {
-        value: 100, // Adjust the number of particles
-        density: {
-          enable: true,
-          value_area: 800, // Adjust the area in which particles are scattered
-        },
-      },
-      color: {
-        value: "#ffffff", // Adjust the color of particles
-      },
-      shape: {
-        type: "circle", // Adjust the shape of particles
-      },
-      opacity: {
-        value: 0.5, // Adjust the opacity of particles
-      },
-      size: {
-        value: 3, // Adjust the size of particles
-      },
-      line_linked: {
-        enable: false,
-      },
-      move: {
-        enable: true,
-        speed: 1, // Adjust the speed of particles
-      },
-    },
-    interactivity: {
-      events: {
-        onhover: {
-          enable: false,
-        },
-      },
-    },
-  });
- });
-</script>
+ </script>
 </body>
 </html>
