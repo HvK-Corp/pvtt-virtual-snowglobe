@@ -84,42 +84,42 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
-    .objects {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 2;
-    }
+.objects {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
 
-    .objects .candy,
-    .objects .chocolate {
-      position: absolute;
-      width: 40px; /* Adjust the width as needed */
-      height: 40px; /* Adjust the height as needed */
-    }
+.objects img {
+  position: absolute;
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  z-index: 3;
+}
 
-    .objects .candy1 {
-      top: 220px;
-      left: 160px;
-    }
+.objects .candy {
+  top: 220px;
+  left: 160px;
+}
 
-    .objects .candy2 {
-      top: 220px;
-      left: 240px;
-    }
+.objects .candy2 {
+  top: 220px;
+  left: 240px;
+}
 
-    .objects .chocolate1 {
-      top: 220px;
-      left: 320px;
-    }
+.objects .chocolate {
+  top: 220px;
+  left: 320px;
+}
 
-    .objects .chocolate2 {
-      top: 220px;
-      left: 400px;
-    }
-    
+.objects .chocolate2 {
+  top: 220px;
+  left: 400px;
+}
+
     /* Styles for mobile devices */
     @media (max-width: 800px) {
       #gift-box,
@@ -189,6 +189,7 @@
     }
   </style>
 </head>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <body>
   <div class="background-container"></div>
   <div class="wrapper">
@@ -212,9 +213,7 @@
       <div class="snow-globe-content">
         <div class="globe">
           <div id="glass-effect"></div>
-          <div class="snow">
-            <div id="particles-js"></div>
-          </div>
+         <div class="snow" id="snow"></div>
           <div class="objects">
             <img class="candy candy1" src="candy.png" alt="Candy" />
             <img class="candy candy2" src="candy.png" alt="Candy" />
@@ -253,45 +252,44 @@
         document.getElementsByClassName("warning-message")[0].style.display = "block";
       }
     </script>
-   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: {
-          value: 100, // Adjust the number of particles
-          density: {
-            enable: true,
-            value_area: 800, // Adjust the area in which particles are scattered
-          },
+ <script>
+  particlesJS("snow", {
+    particles: {
+      number: {
+        value: 100, // Adjust the number of particles
+        density: {
+          enable: true,
+          value_area: 800, // Adjust the area in which particles are scattered
         },
-        color: {
-          value: "#ffffff", // Adjust the color of particles
-        },
-        shape: {
-          type: "circle", // Adjust the shape of particles
-        },
-        opacity: {
-          value: 0.5, // Adjust the opacity of particles
-        },
-        size: {
-          value: 3, // Adjust the size of particles
-        },
-        line_linked: {
+      },
+      color: {
+        value: "#ffffff", // Adjust the color of particles
+      },
+      shape: {
+        type: "circle", // Adjust the shape of particles
+      },
+      opacity: {
+        value: 0.5, // Adjust the opacity of particles
+      },
+      size: {
+        value: 3, // Adjust the size of particles
+      },
+      line_linked: {
+        enable: false,
+      },
+      move: {
+        enable: true,
+        speed: 1, // Adjust the speed of particles
+      },
+    },
+    interactivity: {
+      events: {
+        onhover: {
           enable: false,
         },
-        move: {
-          enable: true,
-          speed: 1, // Adjust the speed of particles
-        },
       },
-      interactivity: {
-        events: {
-          onhover: {
-            enable: false,
-          },
-        },
-      },
-    });
-  </script>
+    },
+  });
+</script>
 </body>
 </html>
