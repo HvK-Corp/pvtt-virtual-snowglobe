@@ -216,67 +216,72 @@
     <div class="warning-message">Please switch to a computer to proceed.</div>
 
 <script>
-      // Function to open the snow globe
-      function openSnowGlobe() {
-        document.getElementById("gift-box").style.display = "none";
-        document.getElementById("message").style.display = "block";
-        document.getElementById("snow-globe").style.display = "none";
-        document.getElementsByClassName("background-container")[0].style.display = "none"; // Fixed index out of bounds error
-      }
-
-       // Shake animation
-      document.getElementById("snow-globe").classList.add("shake");
-      
-      // Show the snowflakes container
-      document.getElementById("snowflakesContainer").style.display = "block";
-      
-      // Generate snowflakes
-      generateSnowflakes(100); // Adjust the number of snowflakes as needed
+    // Function to open the snow globe
+    function openSnowGlobe() {
+      document.getElementById("gift-box").style.display = "none";
+      document.getElementById("message").style.display = "block";
+      document.getElementById("snow-globe").style.display = "none";
+      document.getElementsByClassName("background-container")[0].style.display = "none"; // Fixed index out of bounds error
     }
-    
-    // Function to generate snowflakes
-    function generateSnowflakes(count) {
-      var container = document.getElementById("snowflakesContainer");
-      
-      for (var i = 0; i < count; i++) {
-        var snowflake = document.createElement("div");
-        snowflake.classList.add("snowflake");
-        container.appendChild(snowflake);
-        
-        // Randomize the starting position and animation duration
-        var startX = Math.random() * container.offsetWidth;
-        var startY = Math.random() * container.offsetHeight;
-        var duration = (Math.random() * 10) + 5; // Adjust the duration range as needed
-        
-        // Apply the initial position and animation duration
-        snowflake.style.top = startY + "px";
-        snowflake.style.left = startX + "px";
-        snowflake.style.animationDuration = duration + "s";
-      }
-    }
-    
-    // Click event listener for the snow globe
-    document.getElementById("snow-globe").addEventListener("click", function() {
-      openSnowGlobe();
-    });
-    
-      // Function to hide the message and reveal the snow globe
-      function hideMessage() {
-        document.getElementById("message").style.display = "none";
-        document.getElementById("snow-globe").style.display = "block";
-        document.getElementsByClassName("background-container")[0].style.display = "none";
-        document.body.classList.add("blur"); /* Add blur effect to the body */
-        document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
-      }
 
-      // Check if the device is mobile and show/hide elements accordingly
-      if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
-        document.getElementById("gift-box").style.display = "none";
-        document.getElementById("message").style.display = "none";
-        document.getElementById("snow-globe").style.display = "none";
-        document.getElementsByClassName("warning-message")[0].style.display = "block";
-      }
-    </script>
-  </div>
+    // Shake animation
+    document.getElementById("snow-globe").classList.add("shake");
+
+    // Show the snowflakes container
+    document.getElementById("snowflakesContainer").style.display = "block";
+
+    // Generate snowflakes
+    generateSnowflakes(100); // Adjust the number of snowflakes as needed
+  }
+
+  // Function to generate snowflakes
+  function generateSnowflakes(count) {
+    var container = document.getElementById("snowflakesContainer");
+
+    for (var i = 0; i < count; i++) {
+      var snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      container.appendChild(snowflake);
+
+      // Randomize the starting position and animation duration
+      var startX = Math.random() * container.offsetWidth;
+      var startY = Math.random() * container.offsetHeight;
+      var duration = (Math.random() * 10) + 5; // Adjust the duration range as needed
+
+      // Apply the initial position and animation duration
+      snowflake.style.top = startY + "px";
+      snowflake.style.left = startX + "px";
+      snowflake.style.animationDuration = duration + "s";
+    }
+  }
+
+  // Click event listener for the snow globe
+  document.getElementById("snow-globe").addEventListener("click", function() {
+    openSnowGlobe();
+  });
+
+  // Function to hide the message and reveal the snow globe
+  function hideMessage() {
+    document.getElementById("message").style.display = "none";
+    document.getElementById("snow-globe").style.display = "block";
+    document.getElementsByClassName("background-container")[0].style.display = "none";
+    document.body.classList.add("blur"); /* Add blur effect to the body */
+    document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+  }
+
+  // Check if the device is mobile and show/hide elements accordingly
+  if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+    document.getElementById("gift-box").style.display = "none";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("snow-globe").style.display = "none";
+    document.getElementsByClassName("background-container")[0].style.display = "none";
+    document.getElementsByClassName("warning-message")[0].style.display = "block";
+  } else {
+    document.getElementById("gift-box").style.display = "block";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("snow-globe").style.display = "none";
+    document.getElementsByClassName("background-container")[0].style.display = "block";
+  }
+</script>
 </body>
 </html>
