@@ -171,8 +171,7 @@
       position: relative;
       z-index: 2;
     }
-
-    /* Shake animation */
+    
    /* Shake animation */
 .shake {
   animation: shake 0.5s linear;
@@ -251,21 +250,22 @@
           startSnowAnimation();
         }, 500);
       }
+      
+// Function to start the snow animation
+function startSnowAnimation() {
+  var snowflakes = document.getElementsByClassName("snow");
+  var containerWidth = document.getElementById("snow-globe").offsetWidth;
+  var containerHeight = document.getElementById("snow-globe").offsetHeight;
+  var snowContainer = document.getElementById("snow-globe").getElementsByClassName("snow-globe-content")[0];
+  var settledY = snowContainer.offsetHeight * 0.7; // Adjust the settled Y position
 
-      // Function to start the snow animation
-      function startSnowAnimation() {
-        var snowflakes = document.getElementsByClassName("snow");
-        var containerWidth = document.getElementById("snow-globe").offsetWidth;
-        var containerHeight = document.getElementById("snow-globe").offsetHeight;
-
-        for (var i = 0; i < snowflakes.length; i++) {
-          var snowflake = snowflakes[i];
-          var randomX = Math.random() * containerWidth;
-          var randomY = Math.random() * containerHeight;
-          snowflake.style.left = randomX + "px";
-          snowflake.style.top = randomY + "px";
-        }
-      }
+  for (var i = 0; i < snowflakes.length; i++) {
+    var snowflake = snowflakes[i];
+    var randomX = Math.random() * containerWidth;
+    snowflake.style.left = randomX + "px";
+    snowflake.style.top = settledY + "px";
+  }
+}
 
       // Check if the device is mobile and show/hide elements accordingly
       if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
