@@ -193,6 +193,36 @@
     transform: translateY(0);
   }
 }
+    
+/* Animation for snowflakes rising up */
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+  75% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(-80px);
+  }
+}
+
+/* Animation for snowfall */
+@keyframes snowfall {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0px 0px;
+  }
+  100% {
+    background-position: 500px 500px, 100px 200px, -100px -200px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -241,15 +271,38 @@
         document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
        }
 
-      // Function to shake the globe and start snow animation
-    function shakeGlobe() {
-  document.getElementById("snow-globe").classList.add("shake");
-  setTimeout(function () {
-    document.getElementById("snow-globe").classList.remove("shake");
-    startSnowAnimation(); // Call the startSnowAnimation function here
-  }, 500);
+// Function to settle the snowflakes
+function settleSnowflakes() {
+  var snowflakes = document.getElementsByClassName("snow");
+  var settledY = document.getElementById("snow-globe").getElementsByClassName("snow-globe-content")[0].offsetHeight * 0.7; // Adjust the settled Y position
+
+  for (var i = 0; i < snowflakes.length; i++) {
+    var snowflake = snowflakes[i];
+    snowflake.style.top = settledY + "px";
+  }
 }
-      
+
+// Function to animate snowflakes going up
+function animateSnowflakesUp() {
+  var snowflakes = document.getElementsByClassName("snow");
+  var settledY = document.getElementById("snow-globe").getElementsByClassName("snow-globe-content")[0].offsetHeight * 0.7; // Adjust the settled Y position
+  var startY = settledY + 10; // Adjust the initial Y position
+
+  for (var i = 0; i < snowflakes.length; i++) {
+    var snowflake = snowflakes[i];
+    snowflake.style.animation = "rise 0.5s linear forwards";
+    snowflake.style.top = startY + "px";
+  }
+}
+
+// Function to settle the snowflakes back after a minute
+function settleSnowflakesBack() {
+  setTimeout(function() {
+    settleSnowflakes();
+    startSnowAnimation();
+  }, 60000); // Settle the snowflakes back after 1 minute (60000 milliseconds)
+}
+
 // Function to start the snow animation
 function startSnowAnimation() {
   var snowflakes = document.getElementsByClassName("snow");
@@ -263,7 +316,19 @@ function startSnowAnimation() {
     var randomX = Math.random() * containerWidth;
     snowflake.style.left = randomX + "px";
     snowflake.style.top = settledY + "px";
+    snowflake.style.animation = "snowfall 10s linear infinite";
   }
+}
+
+// Function to shake the globe and trigger animations
+function shakeGlobe() {
+  animateSnowflakesUp(); // Animate snowflakes going up
+  document.getElementById("snow-globe").classList.add("shake");
+  setTimeout(function () {
+    document.getElementById("snow-globe").classList.remove("shake");
+    startSnowAnimation(); // Start regular snow animation
+    settleSnowflakesBack(); // Settle the snowflakes back after a minute
+  }, 500);
 }
 
       // Check if the device is mobile and show/hide elements accordingly
