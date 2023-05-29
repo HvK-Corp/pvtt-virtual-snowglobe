@@ -155,7 +155,6 @@
       pointer-events: none;
       background-image: url('snowflake.png'); 
       animation: snowfall 10s linear infinite;
-      display: none;
     }
 
     @keyframes snowfall {
@@ -243,13 +242,13 @@
        }
 
       // Function to shake the globe and start snow animation
-      function shakeGlobe() {
-        document.getElementById("snow-globe").classList.add("shake");
-        setTimeout(function () {
-          document.getElementById("snow-globe").classList.remove("shake");
-          startSnowAnimation();
-        }, 500);
-      }
+    function shakeGlobe() {
+  document.getElementById("snow-globe").classList.add("shake");
+  setTimeout(function () {
+    document.getElementById("snow-globe").classList.remove("shake");
+    startSnowAnimation(); // Call the startSnowAnimation function here
+  }, 500);
+}
       
 // Function to start the snow animation
 function startSnowAnimation() {
