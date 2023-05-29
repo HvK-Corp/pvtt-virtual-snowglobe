@@ -147,39 +147,25 @@
       z-index: 1;
     }
 
-    /* New styles for the snowflakes */
-    .snowflakes-container {
+    /* Snow effect */
+    .snow {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80%; /* Adjust the width as needed */
-      height: 80%; /* Adjust the height as needed */
-      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: url('silk.png'); /* Replace 'silk.png' with the path to your desired snowflake image */
+      animation: snowfall 10s linear infinite;
     }
 
-    .snowflake {
-      position: absolute;
-      top: -10px; /* Start the flakes above the container */
-      left: -10px; /* Start the flakes outside the container */
-      width: 20px; /* Adjust the size of the flakes */
-      height: 20px; /* Adjust the size of the flakes */
-      background-image: url('snowflake.png'); /* Replace 'snowflake.png' with the path to your snowflake image */
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
+    @keyframes snowfall {
       0% {
-        transform: translate(0, 0) rotate(0);
+        background-position: 0px 0px, 0px 0px, 0px 0px;
       }
       100% {
-        transform: translate(0, 2000px) rotate(720deg);
+        background-position: 500px 500px, 100px 200px, -100px -200px;
       }
     }
-    
+
     .snow-globe-content {
       position: relative;
       z-index: 2;
@@ -189,11 +175,11 @@
 <body>
   <div class="background-container"></div>
   <div class="wrapper">
-    <div id="gift-box" onclick="openSnowGlobe()">
+    <div id="gift-box" onclick="showMessage()">
       <img src="gift-box.png" alt="Gift Box" width="240" height="240" />
     </div>
 
-    <div id="message" onclick="hideMessage()">
+    <div id="message" onclick="openSnowGlobe()">
       <div class="letter-content">
         <p>Dear Anveshika,</p>
         <p>It has been a year of our friendship, and it's your 3rd birthday with me! You've been the best friend I ever had, so today I want to wish you and give you something.</p>
@@ -206,7 +192,7 @@
     </div>
     <div id="snow-globe">
       <div class="snow-globe-content">
-        <div class="snowflakes-container" id="snowflakesContainer"></div>
+        <div class="snow" id="snow"></div>
         <div class="globe">
           <p>Virtual Snow Globe</p>
         </div>
@@ -215,60 +201,32 @@
 
     <div class="warning-message">Please switch to a computer to proceed.</div>
 
-<script>
-    // Function to open the snow globe
-    function openSnowGlobe() {
-      document.getElementById("gift-box").style.display = "none";
-      document.getElementById("message").style.display = "block";
-      document.getElementById("snow-globe").style.display = "none";
-      document.getElementsByClassName("background-container")[0].style.display = "none"; // Fixed index out of bounds error
-    }
+    <script>
+      // Function to open the snow globe
+      function openSnowGlobe() {
+        document.getElementById("gift-box").style.display = "none";
+        document.getElementById("message").style.display = "none";
+        document.getElementById("snow-globe").style.display = "block";
+        document.body.classList.add("blur"); /* Add blur effect to the body */
+        document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+      }
 
-    // Shake animation
-    document.getElementById("snow-globe").classList.add("shake");
+      // Function to hide the message and reveal the snow globe
+      function showMessage() {
+        document.getElementById("gift-box").style.display = "none"
+        document.getElementById("message").style.display = "block";
+        document.getElementById("snow-globe").style.display = "none";
+        document.getElementsByClassName("background-container")[0].style.display = "none";
+      }
 
-    // Show the snowflakes container
-    document.getElementById("snowflakesContainer").style.display = "block";
-
-    // Generate snowflakes
-    generateSnowflakes(100); // Adjust the number of snowflakes as needed
-  }
-
-  // Function to generate snowflakes
-  function generateSnowflakes(count) {
-    var container = document.getElementById("snowflakesContainer");
-
-    for (var i = 0; i < count; i++) {
-      var snowflake = document.createElement("div");
-      snowflake.classList.add("snowflake");
-      container.appendChild(snowflake);
-
-      // Randomize the starting position and animation duration
-      var startX = Math.random() * container.offsetWidth;
-      var startY = Math.random() * container.offsetHeight;
-      var duration = (Math.random() * 10) + 5; // Adjust the duration range as needed
-
-      // Apply the initial position and animation duration
-      snowflake.style.top = startY + "px";
-      snowflake.style.left = startX + "px";
-      snowflake.style.animationDuration = duration + "s";
-    }
-  }
-
-  // Click event listener for the snow globe
-  document.getElementById("snow-globe").addEventListener("click", function (event) {
-    event.stopPropagation(); // Prevent event bubbling to the parent elements
-    this.classList.remove("shake"); // Remove the shake animation class
-  });
-
-  // Click event listener to hide the message
-  function hideMessage() {
-    document.getElementById("gift-box").style.display = "none";
-    document.getElementById("message").style.display = "none";
-    document.getElementsByClassName("background-container")[0].style.display = "none";
-    document.body.classList.add("blur"); /* Add blur effect to the body */
-    document.getElementById("snow-globe").style.display = "block";
-  }
-</script>
+      // Check if the device is mobile and show/hide elements accordingly
+      if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+        document.getElementById("gift-box").style.display = "none";
+        document.getElementById("message").style.display = "none";
+        document.getElementById("snow-globe").style.display = "none";
+        document.getElementsByClassName("warning-message")[0].style.display = "block";
+      }
+    </script>
+  </div>
 </body>
 </html>
