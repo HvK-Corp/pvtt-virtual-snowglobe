@@ -291,8 +291,8 @@ function animateSnowflakesUp() {
 // Function to settle the snowflakes back after a minute
 function settleSnowflakesBack() {
   setTimeout(function () {
-  settleSnowflakes();
-}, 180000);
+    settleSnowflakes();
+  }, 600000); // Settle the snowflakes back after 10 minutes (600,000 milliseconds)
 }
 
 // Function to start the snow animation
@@ -305,7 +305,7 @@ function startSnowAnimation() {
 
   for (var i = 0; i < snowflakes.length; i++) {
     var snowflake = snowflakes[i];
-    
+
     // Adjust the X position for snowflakes to scatter horizontally within the globe
     var randomX = Math.random() * (containerWidth - snowflake.offsetWidth * 2) + snowflake.offsetWidth;
 
@@ -319,12 +319,12 @@ function startSnowAnimation() {
     snowflake.style.animationDelay = animationDelay + "s";
     snowflake.style.left = randomX + "px";
     snowflake.style.top = randomY + "px";
-    
+
     snowflake.classList.add("active"); // Add the 'active' class to snowflakes
   }
 }
 
-      // Function to shake the globe and trigger animations
+// Function to shake the globe and trigger animations
 function shakeGlobe() {
   animateSnowflakesUp(); // Animate snowflakes going up
   document.getElementById("snow-globe").classList.add("shake");
@@ -334,13 +334,24 @@ function shakeGlobe() {
   }, 500);
 }
 
-      // Check if the device is mobile and show/hide elements accordingly
-      if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
-        document.getElementById("gift-box").style.display = "none";
-        document.getElementById("message").style.display = "none";
-        document.getElementById("snow-globe").style.display = "none";
-        document.getElementsByClassName("warning-message")[0].style.display = "block";
-      }
+// Check if the device is mobile and show/hide elements accordingly
+if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+  document.getElementById("gift-box").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("snow-globe").style.display = "none";
+  document.getElementById("warning-message").style.display = "block";
+} else {
+  document.getElementById("gift-box").style.display = "block";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("snow-globe").style.display = "block";
+  settleSnowflakes(); // Settle the snowflakes initially
+  startSnowAnimation(); // Start the snow animation
+
+  // Add event listener to shake the globe when clicked
+  document.getElementById("snow-globe").addEventListener("click", function () {
+    shakeGlobe();
+  });
+}
     </script>
   </div>
 </body>
