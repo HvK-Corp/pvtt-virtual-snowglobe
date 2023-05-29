@@ -146,15 +146,16 @@
       background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity and color as desired */
       z-index: 1;
     }
-
- .snow {
-  width: 200px;
-  height: 100px;
-  border-radius: 100px 100px 0 0; /* Semi-circle shape */
+    
+.snow {
+  width: 400px; /* Same as the globe width */
+  height: 400px; /* Same as the globe height */
+  border-radius: 50%; /* Make it a full circle */
   background-image: url('snowflake.png');
   position: absolute;
-  bottom: 0;
-  left: calc(50% - 100px);
+  bottom: 80px; /* Adjust the vertical position as desired */
+  left: 50%;
+  transform: translateX(-50%); /* Center the semi-circle horizontally */
   overflow: hidden;
 }
 
@@ -181,9 +182,8 @@
       z-index: 2;
     }
     
-   /* Shake animation */
 .shake {
-  animation: shake 0.5s linear;
+  animation: shake 5s linear infinite; /* Decrease the animation duration and set iteration count to infinite */
 }
 
 @keyframes shake {
@@ -204,22 +204,21 @@
   }
 }
     
-/* Animation for snowflakes rising up */
 @keyframes rise {
   0% {
     transform: translateY(0);
   }
   25% {
-    transform: translateY(-20px);
+    transform: translateY(-40px); /* Increase the vertical translation */
   }
   50% {
-    transform: translateY(-40px);
+    transform: translateY(-80px); /* Increase the vertical translation */
   }
   75% {
-    transform: translateY(-60px);
+    transform: translateY(-120px); /* Increase the vertical translation */
   }
   100% {
-    transform: translateY(-80px);
+    transform: translateY(-160px); /* Increase the vertical translation */
   }
 }
 
@@ -228,7 +227,7 @@
     transform: translateY(0%);
   }
   50% {
-    transform: translateY(-100%);
+    transform: translateY(-120%); /* Adjust the vertical translation */
   }
   100% {
     transform: translateY(0%);
