@@ -148,14 +148,13 @@
     }
     
 .snow {
-  width: 400px; /* Same as the globe width */
-  height: 400px; /* Same as the globe height */
-  border-radius: 50%; /* Make it a full circle */
+  width: 30px; /* Adjust the size of snowflakes */
+  height: 30px; /* Adjust the size of snowflakes */
   background-image: url('snowflake.png');
   position: absolute;
   bottom: 80px; /* Adjust the vertical position as desired */
   left: 50%;
-  transform: translateX(-50%); /* Center the semi-circle horizontally */
+  transform: translateX(-50%); /* Center the snowflakes horizontally */
   overflow: hidden;
 }
 
@@ -165,25 +164,23 @@
 }
 
 .snow.active {
-  animation: snowfall 20s linear forwards; /* Increase the animation duration */
+  animation: snowfall 10s linear forwards; /* Set animation duration to 10s */
 }
 
-    @keyframes snowfall {
-      0% {
-        background-position: 0px 0px, 0px 0px, 0px 0px;
-      }
-      100% {
-        background-position: 500px 500px, 100px 200px, -100px -200px;
-      }
-    }
+@keyframes snowfall {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-180px); /* Adjust the vertical translation */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
-    .snow-globe-content {
-      position: relative;
-      z-index: 2;
-    }
-    
 .shake {
-  animation: shake 5s linear infinite; /* Decrease the animation duration and set iteration count to infinite */
+  animation: shake 1s linear infinite; /* Set animation duration to 1s */
 }
 
 @keyframes shake {
@@ -203,7 +200,7 @@
     transform: translateY(0);
   }
 }
-    
+
 @keyframes rise {
   0% {
     transform: translateY(0);
@@ -219,18 +216,6 @@
   }
   100% {
     transform: translateY(-160px); /* Increase the vertical translation */
-  }
-}
-
-@keyframes snowfall {
-  0% {
-    transform: translateY(0%);
-  }
-  50% {
-    transform: translateY(-120%); /* Adjust the vertical translation */
-  }
-  100% {
-    transform: translateY(0%);
   }
 }
 
