@@ -342,8 +342,8 @@ if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
   document.getElementById("warning-message").style.display = "block";
 } else {
   document.getElementById("gift-box").style.display = "block";
-  document.getElementById("message").style.display = "block";
-  document.getElementById("snow-globe").style.display = "block";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("snow-globe").style.display = "none";
   settleSnowflakes(); // Settle the snowflakes initially
   startSnowAnimation(); // Start the snow animation
 
