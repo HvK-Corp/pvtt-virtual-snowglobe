@@ -346,10 +346,10 @@ if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
   settleSnowflakes(); // Settle the snowflakes initially
   startSnowAnimation(); // Start the snow animation
 
-  // Add event listener to shake the globe when clicked
-  document.getElementById("snow-globe").addEventListener("click", function () {
-    shakeGlobe();
-  });
+ // Add event listener to shake the globe when clicked
+document.getElementById("snow-globe").getElementsByClassName("snow-globe-content")[0].addEventListener("click", function () {
+  shakeGlobe();
+});
 }
     </script>
   </div>
