@@ -147,15 +147,26 @@
       z-index: 1;
     }
 
-    /* Snow effect */
-    .snow {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background-image: url('snowflake.png'); 
-      animation: snowfall 10s linear infinite;
-    }
+ .snow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('snowflake.png');
+  animation: unset; /* Disable the snowfall animation by default */
+  background-position: center center; /* Center the snowflakes within the snow globe */
+  background-repeat: no-repeat; /* Prevent the snowflakes from repeating */
+}
+
+/* Add a class to indicate settled snowflakes */
+.snow.settled {
+  animation: none; /* Disable the animation for settled snowflakes */
+}
+
+/* Add a class to indicate active snowflakes */
+.snow.active {
+  animation: snowfall 10s linear infinite; /* Enable the snowfall animation for active snowflakes */
+}
 
     @keyframes snowfall {
       0% {
@@ -213,13 +224,12 @@
   }
 }
 
-/* Animation for snowfall */
 @keyframes snowfall {
   0% {
-    background-position: 0px 0px, 0px 0px, 0px 0px;
+    transform: translateY(-50%);
   }
   100% {
-    background-position: 500px 500px, 100px 200px, -100px -200px;
+    transform: translateY(100%);
   }
 }
 
@@ -274,33 +284,29 @@
 // Function to settle the snowflakes
 function settleSnowflakes() {
   var snowflakes = document.getElementsByClassName("snow");
-  var settledY = document.getElementById("snow-globe").getElementsByClassName("snow-globe-content")[0].offsetHeight * 0.7; // Adjust the settled Y position
 
   for (var i = 0; i < snowflakes.length; i++) {
     var snowflake = snowflakes[i];
-    snowflake.style.top = settledY + "px";
+    snowflake.classList.add("settled"); // Add the 'settled' class to snowflakes
   }
 }
 
 // Function to animate snowflakes going up
 function animateSnowflakesUp() {
   var snowflakes = document.getElementsByClassName("snow");
-  var settledY = document.getElementById("snow-globe").getElementsByClassName("snow-globe-content")[0].offsetHeight * 0.7; // Adjust the settled Y position
-  var startY = settledY + 10; // Adjust the initial Y position
 
   for (var i = 0; i < snowflakes.length; i++) {
     var snowflake = snowflakes[i];
-    snowflake.style.animation = "rise 0.5s linear forwards";
-    snowflake.style.top = startY + "px";
+    snowflake.classList.remove("settled"); // Remove the 'settled' class from snowflakes
+    snowflake.classList.add("active"); // Add the 'active' class to snowflakes
   }
 }
 
 // Function to settle the snowflakes back after a minute
 function settleSnowflakesBack() {
-  setTimeout(function() {
-    settleSnowflakes();
-    startSnowAnimation();
-  }, 60000); // Settle the snowflakes back after 1 minute (60000 milliseconds)
+  setTimeout(function () {
+  settleSnowflakes();
+}, 180000);
 }
 
 // Function to start the snow animation
@@ -313,10 +319,13 @@ function startSnowAnimation() {
 
   for (var i = 0; i < snowflakes.length; i++) {
     var snowflake = snowflakes[i];
-    var randomX = Math.random() * containerWidth;
+    // Adjust the range of random positions to cover a larger area
+  var randomX = Math.random() * (containerWidth - snowflake.offsetWidth);
+  // Adjust the Y position for snowflakes to collect below the vertical diameter
+  var randomY = Math.random() * (containerHeight - settledY - snowflake.offsetHeight) + settledY;
     snowflake.style.left = randomX + "px";
-    snowflake.style.top = settledY + "px";
-    snowflake.style.animation = "snowfall 10s linear infinite";
+    snowflake.style.top = randomY + "px";
+    snowflake.classList.add("active"); // Add the 'active' class to snowflakes
   }
 }
 
@@ -326,7 +335,6 @@ function shakeGlobe() {
   document.getElementById("snow-globe").classList.add("shake");
   setTimeout(function () {
     document.getElementById("snow-globe").classList.remove("shake");
-    startSnowAnimation(); // Start regular snow animation
     settleSnowflakesBack(); // Settle the snowflakes back after a minute
   }, 500);
 }
