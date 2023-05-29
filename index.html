@@ -329,6 +329,8 @@ function shakeGlobe() {
   document.getElementById("snow-globe").classList.add("shake");
   setTimeout(function () {
     document.getElementById("snow-globe").classList.remove("shake");
+    settleSnowflakes(); // Settle the snowflakes initially
+    startSnowAnimation(); // Start the snow animation
     settleSnowflakesBack(); // Settle the snowflakes back after a minute
   }, 500);
 }
@@ -343,13 +345,6 @@ if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
   document.getElementById("gift-box").style.display = "block";
   document.getElementById("message").style.display = "none";
   document.getElementById("snow-globe").style.display = "none";
-  settleSnowflakes(); // Settle the snowflakes initially
-  startSnowAnimation(); // Start the snow animation
-
- // Add event listener to shake the globe when clicked
-document.getElementById("snow-globe").getElementsByClassName("snow-globe-content")[0].addEventListener("click", function () {
-  shakeGlobe();
-});
 }
     </script>
   </div>
