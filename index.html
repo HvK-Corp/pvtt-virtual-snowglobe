@@ -256,31 +256,18 @@
   }
 
   // Click event listener for the snow globe
-  document.getElementById("snow-globe").addEventListener("click", function() {
-    openSnowGlobe();
+  document.getElementById("snow-globe").addEventListener("click", function (event) {
+    event.stopPropagation(); // Prevent event bubbling to the parent elements
+    this.classList.remove("shake"); // Remove the shake animation class
   });
 
-  // Function to hide the message and reveal the snow globe
+  // Click event listener to hide the message
   function hideMessage() {
-    document.getElementById("message").style.display = "none";
-    document.getElementById("snow-globe").style.display = "block";
-    document.getElementsByClassName("background-container")[0].style.display = "none";
-    document.body.classList.add("blur"); /* Add blur effect to the body */
-    document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
-  }
-
-  // Check if the device is mobile and show/hide elements accordingly
-  if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
     document.getElementById("gift-box").style.display = "none";
     document.getElementById("message").style.display = "none";
-    document.getElementById("snow-globe").style.display = "none";
     document.getElementsByClassName("background-container")[0].style.display = "none";
-    document.getElementsByClassName("warning-message")[0].style.display = "block";
-  } else {
-    document.getElementById("gift-box").style.display = "block";
-    document.getElementById("message").style.display = "none";
-    document.getElementById("snow-globe").style.display = "none";
-    document.getElementsByClassName("background-container")[0].style.display = "block";
+    document.body.classList.add("blur"); /* Add blur effect to the body */
+    document.getElementById("snow-globe").style.display = "block";
   }
 </script>
 </body>
