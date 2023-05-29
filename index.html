@@ -241,7 +241,7 @@
     </div>
     <div id="snow-globe" style="display: none;" onclick="shakeGlobe()">
       <div class="snow-globe-content">
-        <div class="snow" id="snow"></div>
+        <div id="snowflakes-container"></div>
         <div class="globe">
           <p>Virtual Snow Globe</p>
         </div>
@@ -295,29 +295,26 @@ function settleSnowflakesBack() {
   }, 600000); // Settle the snowflakes back after 10 minutes (600,000 milliseconds)
 }
 
- function startSnowAnimation() {
-      var snowflakes = document.getElementsByClassName("snow");
-      var containerWidth = document.getElementById("snow-globe").offsetWidth;
-      var containerHeight = document.getElementById("snow-globe").offsetHeight;
-      var snowContainer = document.getElementById("snow-globe").getElementsByClassName("snow-globe-content")[0];
-      var settledY = snowContainer.offsetHeight * 0.7; // Adjust the settled Y position
+function startSnowAnimation() {
+      var snowflakesContainer = document.getElementById("snowflakes-container");
 
-      for (var i = 0; i < snowflakes.length; i++) {
-        var snowflake = snowflakes[i];
+      // Create and position the snowflakes
+      for (var i = 0; i < 50; i++) {
+        var snowflake = document.createElement("div");
+        snowflake.classList.add("snow");
 
         // Adjust the X position for snowflakes to scatter horizontally within the globe
-        var randomX = Math.random() * (containerWidth - snowflake.offsetWidth * 2) + snowflake.offsetWidth;
+        var randomX = Math.random() * (snowflakesContainer.offsetWidth - snowflake.offsetWidth * 2) + snowflake.offsetWidth;
 
         // Adjust the Y position for snowflakes to scatter vertically within the globe
-        var randomY = Math.random() * (containerHeight - settledY - snowflake.offsetHeight) + settledY;
+        var randomY = Math.random() * (snowflakesContainer.offsetHeight - snowflake.offsetHeight) + snowflake.offsetHeight;
 
-        // Adjust the animation delay for snowflakes to scatter randomly
-        var animationDelay = Math.random() * 5; // Random delay between 0 and 5 seconds
-
-        // Set the animation delay and position for each snowflake
-        snowflake.style.animationDelay = animationDelay + "s";
+        // Set the initial position for each snowflake
         snowflake.style.left = randomX + "px";
         snowflake.style.top = randomY + "px";
+
+        // Add the snowflake to the container
+        snowflakesContainer.appendChild(snowflake);
 
         snowflake.classList.add("active"); // Add the 'active' class to snowflakes
       }
