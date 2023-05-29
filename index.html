@@ -148,14 +148,14 @@
     }
 
  .snow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  width: 200px;
+  height: 100px;
+  border-radius: 100px 100px 0 0; /* Semi-circle shape */
   background-image: url('snowflake.png');
-  animation: unset; /* Disable the snowfall animation by default */
-  background-position: center center; /* Center the snowflakes within the snow globe */
-  background-repeat: no-repeat; /* Prevent the snowflakes from repeating */
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 100px);
+  overflow: hidden;
 }
 
 /* Add a class to indicate settled snowflakes */
@@ -163,9 +163,8 @@
   animation: none; /* Disable the animation for settled snowflakes */
 }
 
-/* Add a class to indicate active snowflakes */
 .snow.active {
-  animation: snowfall 10s linear infinite; /* Enable the snowfall animation for active snowflakes */
+  animation: snowfall 20s linear forwards; /* Increase the animation duration */
 }
 
     @keyframes snowfall {
@@ -226,10 +225,13 @@
 
 @keyframes snowfall {
   0% {
-    transform: translateY(-50%);
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-100%);
   }
   100% {
-    transform: translateY(100%);
+    transform: translateY(0%);
   }
 }
 
@@ -319,17 +321,26 @@ function startSnowAnimation() {
 
   for (var i = 0; i < snowflakes.length; i++) {
     var snowflake = snowflakes[i];
-    // Adjust the range of random positions to cover a larger area
-  var randomX = Math.random() * (containerWidth - snowflake.offsetWidth);
-  // Adjust the Y position for snowflakes to collect below the vertical diameter
-  var randomY = Math.random() * (containerHeight - settledY - snowflake.offsetHeight) + settledY;
+    
+    // Adjust the X position for snowflakes to scatter horizontally within the globe
+    var randomX = Math.random() * (containerWidth - snowflake.offsetWidth * 2) + snowflake.offsetWidth;
+
+    // Adjust the Y position for snowflakes to scatter vertically within the globe
+    var randomY = Math.random() * (containerHeight - settledY - snowflake.offsetHeight) + settledY;
+
+    // Adjust the animation delay for snowflakes to scatter randomly
+    var animationDelay = Math.random() * 5; // Random delay between 0 and 5 seconds
+
+    // Set the animation delay and position for each snowflake
+    snowflake.style.animationDelay = animationDelay + "s";
     snowflake.style.left = randomX + "px";
     snowflake.style.top = randomY + "px";
+    
     snowflake.classList.add("active"); // Add the 'active' class to snowflakes
   }
 }
 
-// Function to shake the globe and trigger animations
+      // Function to shake the globe and trigger animations
 function shakeGlobe() {
   animateSnowflakesUp(); // Animate snowflakes going up
   document.getElementById("snow-globe").classList.add("shake");
