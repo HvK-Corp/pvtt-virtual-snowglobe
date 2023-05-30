@@ -5,7 +5,7 @@ function openMessage() {
   document.getElementById("black-screen").style.display = "block"; // Show the black screen
   document.getElementsByClassName("background-container")[0].style.display = "none";
   playSound();
-setTimeout(showMessage, 9000); // Show the message after 9 seconds
+  setTimeout(showMessage, 9000); // Show the message after 9 seconds
 }
 
 function showMessage() {
@@ -37,7 +37,6 @@ function openSnowGlobe() {
   document.body.classList.add("blur"); /* Add blur effect to the body */
   document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
   playBackgroundMusic(); // Start playing the background music
-  startSnowfall(); // Start the snowfall animation
 }
 
 // Function to play background music
@@ -78,7 +77,7 @@ function startSnowfall() {
   }, 30000); // Adjust the duration as needed
 }
 
-/// Function to shake the globe and trigger animations
+// Function to shake the globe and trigger animations
 function shakeGlobe() {
   document.getElementById("snow-globe").classList.add("shake");
   setTimeout(function () {
@@ -108,29 +107,29 @@ function fadeOutSnowflakes() {
     snowflake.classList.add("fade-out");
   }
 }
-  
-  // Function to play background music
+
+// Function to play the snow globe effect sound
 function playEffect() {
   var effect = document.getElementById("globe");
   effect.play(); // Start playing the background music
 }
 
-// Function to pause background music
+// Function to pause the snow globe effect sound
 function pauseEffect() {
   var effect = document.getElementById("globe");
   effect.pause(); // Pause the background music
 }
 
-  var snowfallContainer = document.querySelector(".snowfall-container");
-  snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
+var snowfallContainer = document.querySelector(".snowfall-container");
+snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
 
-  for (var i = 1; i <= 20; i++) {
-    var snowfall = document.createElement("div");
-    snowfall.classList.add("snowfall");
-    snowfall.style.left = Math.random() * 100 + "%";
-    snowfall.style.animationDelay = Math.random() * 6 + "s";
-    snowfallContainer.appendChild(snowfall);
-  }
+for (var i = 1; i <= 20; i++) {
+  var snowfall = document.createElement("div");
+  snowfall.classList.add("snowfall");
+  snowfall.style.left = Math.random() * 100 + "%";
+  snowfall.style.animationDelay = Math.random() * 6 + "s";
+  snowfallContainer.appendChild(snowfall);
+}
 
 // Check if the device is mobile and show/hide elements accordingly
 if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
