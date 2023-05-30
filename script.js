@@ -1,4 +1,4 @@
-    // Function to open the classic message
+// Function to open the classic message
 function openMessage() {
   document.getElementById("gift-box").style.display = "none";
   document.getElementById("message").style.display = "block";
@@ -13,15 +13,16 @@ function openSnowGlobe() {
   document.getElementsByClassName("background-container")[0].style.display = "block";
   document.body.classList.add("blur"); /* Add blur effect to the body */
   document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+  startSnowfall(); // Start the snowfall animation
 }
 
 // Function to start the snow animation
 function startSnowfall() {
-  var snowflakesContainer = document.querySelector(".snowflakes-container");
+  var snowflakesContainer = document.getElementById("snowflakes-container");
 
   for (var i = 0; i < 50; i++) {
     var snowflake = document.createElement("div");
-    snowflake.classList.add("snow");
+    snowflake.classList.add("snowfall");
     snowflakesContainer.appendChild(snowflake);
   }
 }
@@ -31,11 +32,11 @@ function shakeGlobe() {
   document.getElementById("snow-globe").classList.add("shake");
   setTimeout(function () {
     document.getElementById("snow-globe").classList.remove("shake");
-    startSnowAnimation(); // Start the snow animation immediately after the globe stops shaking
+    startSnowfall(); // Start the snow animation immediately after the globe stops shaking
   }, 500);
 
   var snowfallContainer = document.querySelector(".snowfall-container");
-  snowfallContainer.innerHTML = ""; // Clear previous snowballs if any
+  snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
 
   for (var i = 1; i <= 20; i++) {
     var snowfall = document.createElement("div");
