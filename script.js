@@ -62,6 +62,16 @@ function shakeGlobe() {
     startSnowAnimation(); // Start the snow animation
     settleSnowflakesBack(); // Settle the snowflakes back after a minute
   }, 500);
+      var snowfallContainer = document.querySelector(".snowfall-container");
+  snowfallContainer.innerHTML = ""; // Clear previous snowballs if any
+
+  for (var i = 1; i <= 20; i++) {
+    var snowfall = document.createElement("div");
+    snowfall.classList.add("snowfall");
+    snowfall.style.left = Math.random() * 100 + "%";
+    snowfall.style.animationDelay = Math.random() * 6 + "s";
+    snowfallContainer.appendChild(snowfall);
+  }
 }
 
 // Check if the device is mobile and show/hide elements accordingly
