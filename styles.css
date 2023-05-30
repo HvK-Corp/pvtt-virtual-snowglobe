@@ -200,15 +200,27 @@ body {
   }
 }
 
+.snowfall {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+  animation-name: snowfall;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 @keyframes snowfall {
   0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-180px); /* Adjust the vertical translation */
+    transform: translateY(-100vh);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(100vh);
   }
 }
 
