@@ -284,3 +284,18 @@ body {
     transform: translateY(-760px); /* Adjust the vertical translation */
   }
 }
+
+.fade-out {
+  animation-name: fadeOut;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+  }
+}
