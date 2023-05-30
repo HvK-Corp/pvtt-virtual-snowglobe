@@ -179,24 +179,28 @@ body {
 }
 
 .shake {
-  animation: shake 1s linear infinite; /* Set animation duration to 1s */
+  animation: shake 0.5s infinite linear;
+  transform-origin: center;
 }
 
 @keyframes shake {
   0% {
-    transform: translateY(0);
+    transform: translateX(0);
   }
-  25% {
-    transform: translateY(-5px);
+  20% {
+    transform: translateX(-5%);
   }
-  50% {
-    transform: translateY(5px);
+  40% {
+    transform: translateX(5%);
   }
-  75% {
-    transform: translateY(-5px);
+  60% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(5%);
   }
   100% {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
