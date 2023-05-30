@@ -5,7 +5,7 @@ function openMessage() {
   document.getElementById("black-screen").style.display = "block"; // Show the black screen
   document.getElementsByClassName("background-container")[0].style.display = "none";
   playSound();
-setTimeout(showMessage, 8000); // Show the message after 7 seconds
+setTimeout(showMessage, 10000); // Show the message after 10 seconds
 }
 
 function showMessage() {
