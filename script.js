@@ -43,9 +43,6 @@ function shakeGlobe() {
   setTimeout(function () {
     document.getElementById("snow-globe").classList.remove("shake");
     startSnowfall(); // Start the snow animation immediately after the globe stops shaking
-
-    // Stop the snowfall animation after approximately 30 seconds
-    setTimeout(stopSnowAnimation, 30000);
   }, 500);
 
   var snowfallContainer = document.querySelector(".snowfall-container");
@@ -58,6 +55,11 @@ function shakeGlobe() {
     snowfall.style.animationDelay = Math.random() * 6 + "s";
     snowfallContainer.appendChild(snowfall);
   }
+
+  // Add the snowfall animation for the snow going up and down
+  var snowfallUpDown = document.createElement("div");
+  snowfallUpDown.classList.add("snowfall-updown");
+  snowfallContainer.appendChild(snowfallUpDown);
 }
 
 // Check if the device is mobile and show/hide elements accordingly
