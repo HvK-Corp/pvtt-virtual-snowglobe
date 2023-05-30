@@ -131,7 +131,6 @@ function pauseEffect() {
     snowfall.style.animationDelay = Math.random() * 6 + "s";
     snowfallContainer.appendChild(snowfall);
   }
-}
 
 // Check if the device is mobile and show/hide elements accordingly
 if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
