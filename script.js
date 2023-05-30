@@ -27,12 +27,25 @@ function startSnowfall() {
   }
 }
 
+// Function to stop the snowfall animation
+function stopSnowAnimation() {
+  var snowfallElements = document.querySelectorAll(".snowfall");
+
+  for (var i = 0; i < snowfallElements.length; i++) {
+    var snowfall = snowfallElements[i];
+    snowfall.style.animation = "none";
+  }
+}
+
 // Function to shake the globe and trigger animations
 function shakeGlobe() {
   document.getElementById("snow-globe").classList.add("shake");
   setTimeout(function () {
     document.getElementById("snow-globe").classList.remove("shake");
     startSnowfall(); // Start the snow animation immediately after the globe stops shaking
+
+    // Stop the snowfall animation after approximately 30 seconds
+    setTimeout(stopSnowAnimation, 30000);
   }, 500);
 
   var snowfallContainer = document.querySelector(".snowfall-container");
