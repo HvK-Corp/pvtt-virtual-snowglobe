@@ -48,14 +48,50 @@
       overflow: hidden;
     }
 
-    .snow-globe-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80%; /* Adjust the width as needed */
-      height: 80%; /* Adjust the height as needed */
+   .snow-globe-content {
+      position: relative; /* Set the position to relative */
+      width: 80%;
+      height: 80%;
     }
+
+    .snowflakes-container {
+      position: absolute; /* Set the position to absolute */
+      top: 50%; /* Adjust the vertical position */
+      left: 50%; /* Adjust the horizontal position */
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+    }
+
+    .snowflakes-container > div {
+      position: absolute;
+      bottom: 0; /* Set the initial vertical position to the bottom */
+      left: 50%; /* Adjust the horizontal position */
+      transform: translateX(-50%);
+      width: 30px; /* Adjust the size of snowflakes */
+      height: 30px; /* Adjust the size of snowflakes */
+      background-image: url('snowflake.png');
+      animation-name: rise;
+      animation-duration: 10s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      opacity: 0; /* Set initial opacity to 0 */
+    }
+
+    /* Adjust the vertical positions of snowflakes */
+    .snowflakes-container > div:nth-child(1) {
+      top: calc(50% - 90px);
+    }
+
+    .snowflakes-container > div:nth-child(2) {
+      top: calc(50% - 60px);
+    }
+
+    .snowflakes-container > div:nth-child(3) {
+      top: calc(50% - 30px);
+    }
+
 
     #snow-globe p {
       position: absolute;
@@ -146,8 +182,8 @@
       background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity and color as desired */
       z-index: 1;
     }
-    
-.snow {
+   
+    .snow {
   width: 30px; /* Adjust the size of snowflakes */
   height: 30px; /* Adjust the size of snowflakes */
   background-image: url('snowflake.png');
@@ -166,7 +202,7 @@
 .snow.active {
  animation: snowfall 10s linear forwards, rise 10s linear forwards; /* Add the rise animation */
 }
-
+    
 @keyframes snowfall {
   0% {
     transform: translateY(0);
@@ -296,30 +332,15 @@ function settleSnowflakesBack() {
 }
 
 function startSnowAnimation() {
-      var snowflakesContainer = document.getElementById("snowflakes-container");
+      var snowflakesContainer = document.querySelector(".snowflakes-container");
 
-      // Create and position the snowflakes
       for (var i = 0; i < 50; i++) {
         var snowflake = document.createElement("div");
         snowflake.classList.add("snow");
-
-        // Adjust the X position for snowflakes to scatter horizontally within the globe
-        var randomX = Math.random() * (snowflakesContainer.offsetWidth - snowflake.offsetWidth * 2) + snowflake.offsetWidth;
-
-        // Adjust the Y position for snowflakes to scatter vertically within the globe
-        var randomY = Math.random() * (snowflakesContainer.offsetHeight - snowflake.offsetHeight) + snowflake.offsetHeight;
-
-        // Set the initial position for each snowflake
-        snowflake.style.left = randomX + "px";
-        snowflake.style.top = randomY + "px";
-
-        // Add the snowflake to the container
         snowflakesContainer.appendChild(snowflake);
-
-        snowflake.classList.add("active"); // Add the 'active' class to snowflakes
       }
     }
-      
+
 // Function to shake the globe and trigger animations
 function shakeGlobe() {
   animateSnowflakesUp(); // Animate snowflakes going up
