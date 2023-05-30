@@ -1,10 +1,20 @@
 // Function to open the classic message
 function openMessage() {
   document.getElementById("gift-box").style.display = "none";
-  document.getElementById("message").style.display = "block";
-  document.getElementById("message").addEventListener("click", openSnowGlobe);
+  document.getElementById("message").style.display = "none";
+  document.getElementById("black-screen").style.display = "block"; // Show the black screen
   document.getElementsByClassName("background-container")[0].style.display = "none";
   playSound();
+setTimeout(showMessage, 7000); // Show the message after 7 seconds
+}
+
+function showMessage() {
+  document.getElementById("black-screen").style.display = "none"; // Hide the black screen
+  document.getElementById("message").style.display = "block"; // Show the message
+  document.getElementsByClassName("background-container")[0].style.display = "block";
+  document.body.classList.add("blur"); /* Add blur effect to the body */
+  document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+  document.getElementById("message").addEventListener("click", openSnowGlobe);
 }
 
 // Function to play background music
