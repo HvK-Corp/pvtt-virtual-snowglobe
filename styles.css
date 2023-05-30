@@ -1,213 +1,181 @@
-    /* Styles for the gift box */
-    #gift-box {
-      width: 60px; /* Adjust the width as needed */
-      height: 60px; /* Adjust the height as needed */
-      cursor: pointer;
-      position: absolute;
-      left: 59%;
-      top: 73%;
-      transform: translate(-50%, -50%);
-      display: none; /* Hide the gift box by default */
-      z-index: 2;
-    }
+  /* Styles for the gift box */
+#gift-box {
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  cursor: pointer;
+  position: absolute;
+  left: 59%;
+  top: 73%;
+  transform: translate(-50%, -50%);
+  display: none; /* Hide the gift box by default */
+  z-index: 2;
+}
 
-    /* Styles for the message */
-    #message {
-      display: none;
-      text-align: center;
-      font-size: 24px;
-      margin-top: 20px;
-      font-family: 'Old English Text MT', serif; /* Use a font that resembles handwritten text */
-      background-color: beige; /* Paper-like background color */
-      padding: 20px; /* Add some padding to give it a paper-like appearance */
-      border: 2px solid brown; /* Border around the message */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
-      width: 70%; /* Adjust the width as needed */
-      margin: 0 auto; /* Center the message horizontally */
-    }
+/* Styles for the message */
+#message {
+  display: none;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+  font-family: 'Old English Text MT', serif; /* Use a font that resembles handwritten text */
+  background-color: beige; /* Paper-like background color */
+  padding: 20px; /* Add some padding to give it a paper-like appearance */
+  border: 2px solid brown; /* Border around the message */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+  width: 70%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the message horizontally */
+}
 
-    #snow-globe {
-      background-image: url('JK.png'); /* Replace 'JK.jpg' with the path to your desired background image */
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      display: none;
-      width: 400px; /* Adjust the width as needed */
-      height: 400px; /* Adjust the height as needed */
-      margin-top: 20px;
-      margin: 0 auto;
-      text-align: center;
-      font-family: 'Times New Roman', Times, serif;
-      position: relative;
-      border-radius: 50%;
-      overflow: hidden;
-    }
+#snow-globe {
+  background-image: url('JK.png'); /* Replace 'JK.jpg' with the path to your desired background image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: none;
+  width: 400px; /* Adjust the width as needed */
+  height: 400px; /* Adjust the height as needed */
+  margin-top: 20px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
 
-   .snow-globe-content {
-      position: relative; /* Set the position to relative */
-      width: 80%;
-      height: 80%;
-    }
+.snow-globe-content {
+  position: relative; /* Set the position to relative */
+  width: 80%;
+  height: 80%;
+}
 
-    .snowflakes-container {
-      position: absolute; /* Set the position to absolute */
-      top: 50%; /* Adjust the vertical position */
-      left: 50%; /* Adjust the horizontal position */
-      transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
-    }
+.snowflakes-container {
+  position: absolute; /* Set the position to absolute */
+  top: 50%; /* Adjust the vertical position */
+  left: 50%; /* Adjust the horizontal position */
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
 
-    .snowflakes-container > div {
-      position: absolute;
-      bottom: 0; /* Set the initial vertical position to the bottom */
-      left: 50%; /* Adjust the horizontal position */
-      transform: translateX(-50%);
-      width: 30px; /* Adjust the size of snowflakes */
-      height: 30px; /* Adjust the size of snowflakes */
-      background-image: url('snowflake.png');
-      animation-name: rise;
-      animation-duration: 10s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-      opacity: 0; /* Set initial opacity to 0 */
-    }
-
-    /* Adjust the vertical positions of snowflakes */
-    .snowflakes-container > div:nth-child(1) {
-      top: calc(50% - 90px);
-    }
-
-    .snowflakes-container > div:nth-child(2) {
-      top: calc(50% - 60px);
-    }
-
-    .snowflakes-container > div:nth-child(3) {
-      top: calc(50% - 30px);
-    }
-
-
-    #snow-globe p {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    }
-
-    /* Styles for mobile devices */
-    @media (max-width: 800px) {
-      #gift-box,
-      #message,
-      #snow-globe {
-        display: none;
-      }
-
-      .warning-message {
-        font-size: 32px;
-        color: darkslategrey;
-        font-weight: bolder;
-        text-align: center;
-        font-family: 'Courier New', Courier, monospace;
-        display: block; /* Show the warning message on mobile devices */
-      }
-    }
-
-    /* Styles for non-mobile devices (PCs) */
-    @media (min-width: 800px) {
-      .warning-message {
-        display: none; /* Hide the warning message on non-mobile devices */
-      }
-
-      #gift-box {
-        display: block; /* Show the gift box on non-mobile devices (PCs) */
-      }
-    }
-
-    body {
-      margin: 0;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(to bottom, #00008B, #87CEEB);
-      filter: blur(0); /* Initial state: no blur */
-    }
-
-    .background-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('background.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      z-index: -1;
-      filter: blur(0); /* Initial state: no blur */
-    }
-
-    .blur .background-container:not(#snow-globe) {
-      filter: blur(5px); /* Apply a blur effect to the background only */
-    }
-
-    .blur #snow-globe {
-      filter: none; /* Remove the blur effect from the snow globe */
-    }
-
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #snow-globe:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity and color as desired */
-      z-index: 1;
-    }
-
-    .snow {
+.snowflakes-container > div {
+  position: absolute;
+  bottom: 0; /* Set the initial vertical position to the bottom */
+  left: 50%; /* Adjust the horizontal position */
+  transform: translateX(-50%);
   width: 30px; /* Adjust the size of snowflakes */
   height: 30px; /* Adjust the size of snowflakes */
-  background-image: url('snowflake.png');
+  background-color: white; /* Use white color for snowflakes */
+  border-radius: 50%; /* Make the snowflakes circular */
+  animation-name: snowfall;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  opacity: 0; /* Set initial opacity to 0 */
+}
+
+/* Adjust the vertical positions of snowflakes */
+.snowflakes-container > div:nth-child(1) {
+  top: calc(50% - 90px);
+}
+
+.snowflakes-container > div:nth-child(2) {
+  top: calc(50% - 60px);
+}
+
+.snowflakes-container > div:nth-child(3) {
+  top: calc(50% - 30px);
+}
+
+#snow-globe p {
   position: absolute;
-   bottom: calc(50% - 90px); /* Adjust the vertical position */
-   left: 50%;
-   transform: translateX(-50%);
-   overflow: hidden;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Add a class to indicate settled snowflakes */
-.snow.settled {
-  animation: none; /* Disable the animation for settled snowflakes */
+/* Styles for mobile devices */
+@media (max-width: 800px) {
+  #gift-box,
+  #message,
+  #snow-globe {
+    display: none;
+  }
+
+  .warning-message {
+    font-size: 32px;
+    color: darkslategrey;
+    font-weight: bolder;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    display: block; /* Show the warning message on mobile devices */
+  }
 }
 
-.snow.active {
- animation: snowfall 10s linear forwards, rise 10s linear forwards; /* Add the rise animation */
+/* Styles for non-mobile devices (PCs) */
+@media (min-width: 800px) {
+  .warning-message {
+    display: none; /* Hide the warning message on non-mobile devices */
+  }
+
+  #gift-box {
+    display: block; /* Show the gift box on non-mobile devices (PCs) */
+  }
 }
 
-@keyframes snowfall {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-180px); /* Adjust the vertical translation */
-  }
-  100% {
-    transform: translateY(0);
-  }
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #00008B, #87CEEB);
+  filter: blur(0); /* Initial state: no blur */
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: -1;
+  filter: blur(0); /* Initial state: no blur */
+}
+
+.blur .background-container:not(#snow-globe) {
+  filter: blur(5px); /* Apply a blur effect to the background only */
+}
+
+.blur #snow-globe {
+  filter: none; /* Remove the blur effect from the snow globe */
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#snow-globe:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity and color as desired */
+  z-index: 1;
 }
 
 .shake {
@@ -232,20 +200,32 @@
   }
 }
 
- @keyframes rise {
-      0% {
-        transform: translateY(0);
-      }
-      25% {
-        transform: translateY(-190px); /* Adjust the vertical translation */
-      }
-      50% {
-        transform: translateY(-380px); /* Adjust the vertical translation */
-      }
-      75% {
-        transform: translateY(-570px); /* Adjust the vertical translation */
-      }
-      100% {
-        transform: translateY(-760px); /* Adjust the vertical translation */
-      }
-    }
+@keyframes snowfall {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-180px); /* Adjust the vertical translation */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-190px); /* Adjust the vertical translation */
+  }
+  50% {
+    transform: translateY(-380px); /* Adjust the vertical translation */
+  }
+  75% {
+    transform: translateY(-570px); /* Adjust the vertical translation */
+  }
+  100% {
+    transform: translateY(-760px); /* Adjust the vertical translation */
+  }
+}
