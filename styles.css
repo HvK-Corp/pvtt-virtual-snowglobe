@@ -58,7 +58,7 @@
   height: 100%;
 }
 
-.snowflakes-container > div {
+.snowflakes-container > .snowfall {
   position: absolute;
   bottom: 0; /* Set the initial vertical position to the bottom */
   left: 50%; /* Adjust the horizontal position */
