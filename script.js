@@ -5,7 +5,7 @@ function openMessage() {
   document.getElementById("black-screen").style.display = "block"; // Show the black screen
   document.getElementsByClassName("background-container")[0].style.display = "none";
   playSound();
-setTimeout(showMessage, 10000); // Show the message after 10 seconds
+setTimeout(showMessage, 9000); // Show the message after 9 seconds
 }
 
 function showMessage() {
@@ -55,35 +55,59 @@ function pauseBackgroundMusic() {
 // Function to start the snow animation
 function startSnowfall() {
   var snowflakesContainer = document.getElementById("snowflakes-container");
+  var snowflakes = []; // Array to store snowflake elements
 
   for (var i = 0; i < 50; i++) {
     var snowflake = document.createElement("div");
     snowflake.classList.add("snowfall");
     snowflakesContainer.appendChild(snowflake);
+    snowflakes.push(snowflake); // Add the snowflake element to the array
   }
+
+  setTimeout(function () {
+    snowflakes.forEach(function (snowflake) {
+      snowflake.style.opacity = "0"; // Set the opacity to 0 to fade out the snowflakes
+    });
+
+    // Remove the snowflakes from the DOM after fading out
+    setTimeout(function () {
+      snowflakes.forEach(function (snowflake) {
+        snowflakesContainer.removeChild(snowflake);
+      });
+    }, 2000); // Adjust the duration as needed
+  }, 30000); // Adjust the duration as needed
 }
 
-// Function to stop the snowfall animation
-function stopSnowAnimation() {
-  var snowfallElements = document.querySelectorAll(".snowfall");
-
-  for (var i = 0; i < snowfallElements.length; i++) {
-    var snowfall = snowfallElements[i];
-    snowfall.style.animation = "none";
-  }
-}
-
-// Function to shake the globe and trigger animations
+/// Function to shake the globe and trigger animations
 function shakeGlobe() {
   document.getElementById("snow-globe").classList.add("shake");
   setTimeout(function () {
     document.getElementById("snow-globe").classList.remove("shake");
     playEffect();
-    startSnowfall();// Start the snow animation immediately after the globe stops shaking
+    startSnowfall(); // Start the snow animation immediately after the globe stops shaking
 
     // Stop the snowfall animation after approximately 30 seconds
     setTimeout(stopSnowAnimation, 30000);
   }, 500);
+
+  var snowfallContainer = document.querySelector(".snowfall-container");
+  snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
+}
+
+// Function to stop the snowfall animation and fade out remaining snowflakes
+function stopSnowAnimation() {
+  clearInterval(snowfallInterval); // Clear the interval after 30 seconds
+  fadeOutSnowflakes(); // Fade out the remaining snowflakes
+}
+
+// Function to fade out the remaining snowflakes
+function fadeOutSnowflakes() {
+  var snowflakes = document.querySelectorAll(".snowfall");
+  for (var i = 0; i < snowflakes.length; i++) {
+    var snowflake = snowflakes[i];
+    snowflake.classList.add("fade-out");
+  }
+}
   
   // Function to play background music
 function playEffect() {
