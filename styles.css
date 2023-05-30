@@ -26,6 +26,10 @@
   margin: 0 auto; /* Center the message horizontally */
 }
 
+audio {
+  display: none; /* Hide the audio element by default */
+}
+
 #snow-globe {
   background-image: url('JK.png'); /* Replace 'JK.jpg' with the path to your desired background image */
   background-repeat: no-repeat;
