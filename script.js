@@ -27,16 +27,6 @@ function startSnowfall() {
   }
 }
 
-// Function to stop the snowfall animation
-function stopSnowAnimation() {
-  var snowfallElements = document.querySelectorAll(".snowfall");
-
-  for (var i = 0; i < snowfallElements.length; i++) {
-    var snowfall = snowfallElements[i];
-    snowfall.style.animation = "none";
-  }
-}
-
 // Function to shake the globe and trigger animations
 function shakeGlobe() {
   document.getElementById("snow-globe").classList.add("shake");
@@ -45,7 +35,7 @@ function shakeGlobe() {
     startSnowfall(); // Start the snow animation immediately after the globe stops shaking
   }, 500);
 
-  var snowfallContainer = document.querySelector(".snowfall-container");
+  var snowfallContainer = document.querySelector(".snowflakes-container");
   snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
 
   for (var i = 1; i <= 20; i++) {
@@ -60,6 +50,19 @@ function shakeGlobe() {
   var snowfallUpDown = document.createElement("div");
   snowfallUpDown.classList.add("snowfall-updown");
   snowfallContainer.appendChild(snowfallUpDown);
+
+  // Stop the snowfall animation after 30 seconds
+  setTimeout(stopSnowfall, 30000);
+}
+
+// Function to stop the snowfall animation
+function stopSnowfall() {
+  var snowflakes = document.querySelectorAll(".snowfall");
+  snowflakes.forEach(function (snowflake) {
+    snowflake.style.animation = "none";
+  });
+  var snowfallUpDown = document.querySelector(".snowfall-updown");
+  snowfallUpDown.style.animation = "none";
 }
 
 // Check if the device is mobile and show/hide elements accordingly
