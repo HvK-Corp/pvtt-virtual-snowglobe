@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Virtual Snow Globe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background-container"></div>
+  <div class="wrapper">
+    <div id="gift-box" onclick="openMessage()">
+      <img src="gift-box.png" alt="Gift Box" width="240" height="240" />
+    </div>
+
+    <div id="message" style="display: none;" onclick="openSnowGlobe()">
+      <div class="letter-content">
+        <p>Dear Anveshika,</p>
+        <p>It has been a year of our friendship, and it's your 3rd birthday with me! You've been the best friend I ever had, so today I want to wish you and give you something.</p>
+        <p>On your 15th birthday, I wish you a great, sweet, and smiling life ahead. Soon you'll step into the real world, I hope you achieve great success (especially in singing, I know ^_^).</p>
+        <p>Happy Birthday! Since we can't meet, I wanted to give you something special. Here, I have a snow globe for you, and I hope you love it.</p>
+        <p>I'll buy myself a chocolate. I don't want to ruin your mood for the second time on the same date and month for another year in a row ヾ(≧▽≦*)o</p>
+        <p>Your Best Friend,</p>
+        <p>Daksh</p>
+      </div>
+    </div>
+    <div id="snow-globe" style="display: none;" onclick="shakeGlobe()">
+      <div class="snow-globe-content">
+        <div id="snowflakes-container"></div>
+        <div class="globe">
+          <p>Virtual Snow Globe</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-message">Please switch to a computer to proceed.</div>
+    <script src="script.js"></script>
+    </div>
+</body>
+</html>
