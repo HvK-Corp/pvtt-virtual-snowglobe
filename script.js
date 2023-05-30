@@ -8,13 +8,13 @@ function openMessage() {
 }
 
 // Function to play background music
-function playBackgroundMusic() {
+function playSound() {
   var soundEffect = document.getElementById("tear");
   soundEffect.play(); // Start playing the background music
 }
 
 // Function to pause background music
-function pauseBackgroundMusic() {
+function pauseSound() {
   var soundEffect = document.getElementById("tear");
   soundEffect.pause(); // Pause the background music
 }
