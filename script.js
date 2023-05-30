@@ -4,7 +4,17 @@ function openMessage() {
   document.getElementById("message").style.display = "block";
   document.getElementById("message").addEventListener("click", openSnowGlobe);
   document.getElementsByClassName("background-container")[0].style.display = "none";
+}
+
+// Function to open the snow globe
+function openSnowGlobe() {
+  document.getElementById("message").style.display = "none";
+  document.getElementById("snow-globe").style.display = "block";
+  document.getElementsByClassName("background-container")[0].style.display = "block";
+  document.body.classList.add("blur"); /* Add blur effect to the body */
+  document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
   playBackgroundMusic(); // Start playing the background music
+  startSnowfall(); // Start the snowfall animation
 }
 
 // Function to play background music
@@ -17,16 +27,6 @@ function playBackgroundMusic() {
 function pauseBackgroundMusic() {
   var bgMusic = document.getElementById("bg-music");
   bgMusic.pause(); // Pause the background music
-}
-
-// Function to open the snow globe
-function openSnowGlobe() {
-  document.getElementById("message").style.display = "none";
-  document.getElementById("snow-globe").style.display = "block";
-  document.getElementsByClassName("background-container")[0].style.display = "block";
-  document.body.classList.add("blur"); /* Add blur effect to the body */
-  document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
-  startSnowfall(); // Start the snowfall animation
 }
 
 // Function to start the snow animation
