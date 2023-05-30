@@ -2,6 +2,7 @@
 function openMessage() {
   document.getElementById("gift-box").style.display = "none";
   document.getElementById("message").style.display = "block";
+  document.getElementById("message").addEventListener("click", openSnowGlobe);
   document.getElementsByClassName("background-container")[0].style.display = "none";
 }
 
@@ -15,7 +16,7 @@ function openSnowGlobe() {
 }
 
 // Function to start the snow animation
-function startSnowAnimation() {
+function startSnowfall() {
   var snowflakesContainer = document.querySelector(".snowflakes-container");
 
   for (var i = 0; i < 50; i++) {
