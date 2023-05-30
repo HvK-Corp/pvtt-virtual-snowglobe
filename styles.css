@@ -88,14 +88,6 @@
   top: calc(50% - 30px);
 }
 
-.snowfall-updown {
-  position: absolute;
-  width: 1px;
-  height: 100px;
-  top: -100px;
-  animation: snowfall-updown 3s infinite linear;
-}
-
 @keyframes snowfall-updown {
   0% {
     top: -100px;
@@ -237,6 +229,7 @@ body {
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  transform: translateX(-50%);
 }
 
 @keyframes snowfall {
