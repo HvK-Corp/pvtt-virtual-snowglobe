@@ -23,19 +23,29 @@
   display: none; /* Hide the black screen by default */
 }
 
-/* Styles for the message */
 #message {
   display: none;
   text-align: center;
   font-size: 24px;
   margin-top: 20px;
-  font-family: 'Old English Text MT', serif; /* Use a font that resembles handwritten text */
-  background-color: beige; /* Paper-like background color */
-  padding: 20px; /* Add some padding to give it a paper-like appearance */
-  border: 2px solid brown; /* Border around the message */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
-  width: 70%; /* Adjust the width as needed */
-  margin: 0 auto; /* Center the message horizontally */
+  font-family: 'Old English Text MT', serif;
+  background-color: beige;
+  padding: 20px;
+  border: 2px solid brown;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 70%;
+  margin: 0 auto;
+  transform: scale(0); /* Start with scale(0) to hide the message */
+  animation: zoom-out 1s 10s forwards; /* Apply the zoom-out animation after 10 seconds */
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 audio {
