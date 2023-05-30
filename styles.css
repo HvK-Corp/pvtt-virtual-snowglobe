@@ -207,7 +207,7 @@ body {
 }
 
 .shake {
-  animation: shake 0.5s infinite linear;
+  animation: shake 1s infinite linear;
   transform-origin: center;
 }
 
