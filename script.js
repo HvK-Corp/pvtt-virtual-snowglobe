@@ -4,6 +4,19 @@ function openMessage() {
   document.getElementById("message").style.display = "block";
   document.getElementById("message").addEventListener("click", openSnowGlobe);
   document.getElementsByClassName("background-container")[0].style.display = "none";
+  playSound();
+}
+
+// Function to play background music
+function playBackgroundMusic() {
+  var soundEffect = document.getElementById("tear");
+  soundEffect.play(); // Start playing the background music
+}
+
+// Function to pause background music
+function pauseBackgroundMusic() {
+  var soundEffect = document.getElementById("tear");
+  soundEffect.pause(); // Pause the background music
 }
 
 // Function to open the snow globe
