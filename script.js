@@ -3,9 +3,10 @@
 
   if (currentDate >= targetDate) {
     document.getElementById("gift-box").style.display = "block";
+   document.getElementsByClassName("not-now")[0].style.display = "none";
     document.getElementsByClassName("background-container")[0].style.display = "block";
   } else {
-    document.getElementById("not-now").style.display = "block";
+    document.getElementsByClassName("not-now")[0].style.display = "block";
     document.getElementById("gift-box").style.display = "none";
    document.getElementsByClassName("background-container")[0].style.display = "block";
     document.body.classList.add("blur"); /* Add blur effect to the body */
