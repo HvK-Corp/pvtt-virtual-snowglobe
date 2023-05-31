@@ -55,24 +55,32 @@ function pauseBackgroundMusic() {
 // Function to start the snow animation
 function startSnowfall() {
   var snowflakesContainer = document.getElementById("snowflakes-container");
+  var snowfallElements = []; // Array to store snowfall elements
 
   for (var i = 0; i < 50; i++) {
     var snowflake = document.createElement("div");
     snowflake.classList.add("snowfall");
     snowflakesContainer.appendChild(snowflake);
+    snowfallElements.push(snowflake); // Add snowfall element to the array
   }
 
   // Stop the snowfall animation after approximately 30 seconds
-  setTimeout(stopSnowAnimation, 30000);
+  setTimeout(function () {
+    stopSnowAnimation(snowfallElements);
+  }, 30000);
 }
 
 // Function to stop the snowfall animation
-function stopSnowAnimation() {
-  var snowfallElements = document.querySelectorAll(".snowfall");
-
+function stopSnowAnimation(snowfallElements) {
   for (var i = 0; i < snowfallElements.length; i++) {
     var snowfall = snowfallElements[i];
-    snowfall.style.animation = "fade-out 2s forwards";
+    var animationDuration = parseFloat(getComputedStyle(snowfall).animationDuration) * 1000;
+    var animationDelay = parseFloat(getComputedStyle(snowfall).animationDelay) * 1000;
+
+    // Check if the snowflake is still animating
+    if (animationDuration > animationDelay) {
+      snowfall.style.animation = "fade-out 2s forwards";
+    }
   }
 }
 
