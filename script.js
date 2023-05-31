@@ -52,12 +52,15 @@ function pauseBackgroundMusic() {
   bgMusic.pause(); // Pause the background music
 }
 
+// Declare a variable to hold the timeout ID
+var snowfallTimeout;
+
 // Function to start the snow animation
 function startSnowfall() {
   var snowflakesContainer = document.getElementById("snowflakes-container");
   var snowfallElements = []; // Array to store snowfall elements
 
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 100; i++) { // Increase the loop limit to 100 (adjust as needed)
     var snowflake = document.createElement("div");
     snowflake.classList.add("snowfall");
     snowflakesContainer.appendChild(snowflake);
@@ -65,23 +68,29 @@ function startSnowfall() {
   }
 
   // Stop the snowfall animation after approximately 30 seconds
-  setTimeout(function () {
+  snowfallTimeout = setTimeout(function () {
     stopSnowAnimation(snowfallElements);
-  }, 30000);
+  }, 20000);
 }
 
 // Function to stop the snowfall animation
 function stopSnowAnimation(snowfallElements) {
+  // Clear the timeout if it exists
+  if (snowfallTimeout) {
+    clearTimeout(snowfallTimeout);
+  }
+
+  // Iterate over the snowfall elements and remove them with a fade-out animation
   for (var i = 0; i < snowfallElements.length; i++) {
     var snowfall = snowfallElements[i];
-    var animationDuration = parseFloat(getComputedStyle(snowfall).animationDuration) * 1000;
-    var animationDelay = parseFloat(getComputedStyle(snowfall).animationDelay) * 1000;
-
-    // Check if the snowflake is still animating
-    if (animationDuration > animationDelay) {
-      snowfall.style.animation = "fade-out 2s forwards";
-    }
+    snowfall.style.animation = "fadeout 1s";
   }
+
+  // Remove the snowfall elements from the DOM after the fade-out animation completes
+  setTimeout(function () {
+    var snowflakesContainer = document.getElementById("snowflakes-container");
+    snowflakesContainer.innerHTML = "";
+  }, 1000);
 }
 
 // Function to shake the globe and trigger animations
