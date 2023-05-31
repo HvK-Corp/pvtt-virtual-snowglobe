@@ -1,4 +1,4 @@
-// Function to open the classic message
+/// Function to open the classic message
 function openMessage() {
   document.getElementById("gift-box").style.display = "none";
   document.getElementById("message").style.display = "none";
@@ -95,7 +95,6 @@ function shakeGlobe() {
 
 // Function to stop the snowfall animation and fade out remaining snowflakes
 function stopSnowAnimation() {
-  clearInterval(snowfallInterval); // Clear the interval after 30 seconds
   fadeOutSnowflakes(); // Fade out the remaining snowflakes
 }
 
@@ -106,6 +105,13 @@ function fadeOutSnowflakes() {
     var snowflake = snowflakes[i];
     snowflake.classList.add("fade-out");
   }
+
+  // Remove the snowflakes from the DOM after fading out
+  setTimeout(function () {
+    snowflakes.forEach(function (snowflake) {
+      snowflake.parentNode.removeChild(snowflake);
+    });
+  }, 2000); // Adjust the duration as needed
 }
 
 // Function to play the snow globe effect sound
