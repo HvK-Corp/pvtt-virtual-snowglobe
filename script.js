@@ -1,20 +1,3 @@
-var currentDate = new Date();
-var targetDate = new Date("July 14, 2023");
-
-if (currentDate < targetDate) {
-  document.getElementsByClassName("not-now")[0].style.display = "block";
-  document.getElementById("gift-box").style.display = "none";
-  document.getElementsByClassName("background-container")[0].style.display = "block";
-  document.body.classList.add("blur");
-  document.getElementsByClassName("background-container")[0].classList.add("blur");
-} else {
-  document.getElementsByClassName("not-now")[0].style.display = "none";
-  document.getElementById("gift-box").style.display = "block";
-  document.getElementsByClassName("background-container")[0].style.display = "block";
-  document.body.classList.remove("blur");
-  document.getElementsByClassName("background-container")[0].classList.remove("blur");
-}
-
 // Function to open the classic message
 function openMessage() {
   document.getElementById("gift-box").style.display = "none";
@@ -100,6 +83,7 @@ function shakeGlobe() {
     // Stop the snowfall animation after approximately 30 seconds
     setTimeout(stopSnowAnimation, 30000);
   }, 500);
+}
 // Function to play background music
 function playEffect() {
   var effect = document.getElementById("globe");
