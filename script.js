@@ -51,6 +51,7 @@ function pauseBackgroundMusic() {
   var bgMusic = document.getElementById("bg-music");
   bgMusic.pause(); // Pause the background music
 }
+
 // Function to start the snow animation
 function startSnowfall() {
   var snowflakesContainer = document.getElementById("snowflakes-container");
@@ -60,6 +61,9 @@ function startSnowfall() {
     snowflake.classList.add("snowfall");
     snowflakesContainer.appendChild(snowflake);
   }
+
+  // Stop the snowfall animation after approximately 30 seconds
+  setTimeout(stopSnowAnimation, 30000);
 }
 
 // Function to stop the snowfall animation
@@ -68,7 +72,7 @@ function stopSnowAnimation() {
 
   for (var i = 0; i < snowfallElements.length; i++) {
     var snowfall = snowfallElements[i];
-    snowfall.style.animation = "none";
+    snowfall.style.animation = "fade-out 2s forwards";
   }
 }
 
