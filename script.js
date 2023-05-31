@@ -37,6 +37,7 @@ function openSnowGlobe() {
   document.body.classList.add("blur"); /* Add blur effect to the body */
   document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
   playBackgroundMusic(); // Start playing the background music
+  document.getElementById("snow-globe").addEventListener("click", shakeGlobe);
 }
 
 // Function to play background music
