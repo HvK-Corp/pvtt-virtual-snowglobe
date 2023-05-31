@@ -1,9 +1,18 @@
 // Function to open the classic message
 function openMessage() {
   document.getElementById("gift-box").style.display = "none";
-  document.getElementById("message").style.display = "block";
+  document.getElementById("message").style.display = "none"; // Hide the message initially
+  document.getElementById("box-opening-sound").play(); // Play the box opening sound effect
+  document.getElementsByClassName("background-container")[0].style.display = "block";
+  document.body.classList.add("blur"); /* Add blur effect to the body */
+  document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+  setTimeout(showMessage, 9000); // Show the message after 7 seconds
+}
+
+// Function to show the message
+function showMessage() {
+  document.getElementById("message").style.display = "block"; // Show the message
   document.getElementById("message").addEventListener("click", openSnowGlobe);
-  document.getElementsByClassName("background-container")[0].style.display = "none";
 }
 
 // Function to open the snow globe
@@ -17,6 +26,17 @@ function openSnowGlobe() {
   startSnowfall(); // Start the snowfall animation
 }
 
+// Function to play background music
+function playBackgroundMusic() {
+  var bgMusic = document.getElementById("bg-music");
+  bgMusic.play(); // Start playing the background music
+}
+
+// Function to pause background music
+function pauseBackgroundMusic() {
+  var bgMusic = document.getElementById("bg-music");
+  bgMusic.pause(); // Pause the background music
+}
 // Function to start the snow animation
 function startSnowfall() {
   var snowflakesContainer = document.getElementById("snowflakes-container");
