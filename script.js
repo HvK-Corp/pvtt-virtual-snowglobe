@@ -1,4 +1,4 @@
-/// Function to open the classic message
+// Function to open the classic message
 function openMessage() {
   document.getElementById("gift-box").style.display = "none";
   document.getElementById("message").style.display = "none";
@@ -37,7 +37,19 @@ function openSnowGlobe() {
   document.body.classList.add("blur"); /* Add blur effect to the body */
   document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
   playBackgroundMusic(); // Start playing the background music
-  document.getElementById("snow-globe").addEventListener("click", shakeGlobe);
+  startSnowfall(); // Start the snow animation immediately after the globe stops shaking
+}
+
+// Function to play background music
+function playBackgroundMusic() {
+  var bgMusic = document.getElementById("bg-music");
+  bgMusic.play(); // Start playing the background music
+}
+
+// Function to pause background music
+function pauseBackgroundMusic() {
+  var bgMusic = document.getElementById("bg-music");
+  bgMusic.pause(); // Pause the background music
 }
 
 // Function to start the snow animation
@@ -72,7 +84,6 @@ function shakeGlobe() {
   setTimeout(function () {
     document.getElementById("snow-globe").classList.remove("shake");
     playEffect();
-    startSnowfall(); // Start the snow animation immediately after the globe stops shaking
 
     // Stop the snowfall animation after approximately 30 seconds
     setTimeout(stopSnowAnimation, 30000);
@@ -80,24 +91,11 @@ function shakeGlobe() {
 
   var snowfallContainer = document.querySelector(".snowfall-container");
   snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
-
-  // Add event listener to start snowfall when clicking the globe
-  document.getElementById("snow-globe").removeEventListener("click", shakeGlobe);
-}
-// Function to play background music
-function playBackgroundMusic() {
-  var bgMusic = document.getElementById("bg-music");
-  bgMusic.play(); // Start playing the background music
-}
-
-// Function to pause background music
-function pauseBackgroundMusic() {
-  var bgMusic = document.getElementById("bg-music");
-  bgMusic.pause(); // Pause the background music
 }
 
 // Function to stop the snowfall animation and fade out remaining snowflakes
 function stopSnowAnimation() {
+  clearInterval(snowfallInterval); // Clear the interval after 30 seconds
   fadeOutSnowflakes(); // Fade out the remaining snowflakes
 }
 
@@ -108,13 +106,6 @@ function fadeOutSnowflakes() {
     var snowflake = snowflakes[i];
     snowflake.classList.add("fade-out");
   }
-
-  // Remove the snowflakes from the DOM after fading out
-  setTimeout(function () {
-    snowflakes.forEach(function (snowflake) {
-      snowflake.parentNode.removeChild(snowflake);
-    });
-  }, 2000); // Adjust the duration as needed
 }
 
 // Function to play the snow globe effect sound
