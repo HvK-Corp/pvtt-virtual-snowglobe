@@ -1,16 +1,16 @@
  var currentDate = new Date();
   var targetDate = new Date("July 14, 2023");
 
-  if (currentDate >= targetDate) {
-    document.getElementById("gift-box").style.display = "block";
-   document.getElementsByClassName("not-now")[0].style.display = "none";
-    document.getElementsByClassName("background-container")[0].style.display = "block";
-  } else {
-    document.getElementsByClassName("not-now")[0].style.display = "block";
+  if (currentDate < targetDate) {
+   document.getElementsByClassName("not-now")[0].style.display = "block";
     document.getElementById("gift-box").style.display = "none";
    document.getElementsByClassName("background-container")[0].style.display = "block";
     document.body.classList.add("blur"); /* Add blur effect to the body */
     document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+  } else {
+   document.getElementById("gift-box").style.display = "block";
+   document.getElementsByClassName("not-now")[0].style.display = "none";
+    document.getElementsByClassName("background-container")[0].style.display = "block";
   }
 
 // Function to open the classic message
