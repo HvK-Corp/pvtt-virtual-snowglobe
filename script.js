@@ -9,23 +9,26 @@ function isBeforeJuly14() {
 // Function to display the countdown timer
 function displayCountdownTimer() {
   var countdownTimer = document.getElementById("countdown-timer");
-  countdownTimer.style.display = "block";
-  
-  // Add your countdown timer animation code here
-  
-  // Example: Show a simple countdown
-  var countdown = 10; // Number of seconds for the countdown
-  
-  var timerInterval = setInterval(function() {
-    countdown--;
-    countdownTimer.innerText = countdown;
-    
-    if (countdown === 0) {
-      clearInterval(timerInterval);
-      countdownTimer.style.display = "none";
-      openMessage(); // Proceed with opening the message
-    }
-  }, 1000);
+
+  if (countdownTimer) {
+    countdownTimer.style.display = "block";
+
+    // Add your countdown timer animation code here
+
+    // Example: Show a simple countdown
+    var countdown = 10; // Number of seconds for the countdown
+
+    var timerInterval = setInterval(function () {
+      countdown--;
+      countdownTimer.innerText = countdown;
+
+      if (countdown === 0) {
+        clearInterval(timerInterval);
+        countdownTimer.style.display = "none";
+        openMessage(); // Proceed with opening the message
+      }
+    }, 1000);
+  }
 }
 
 // Check if the current date is before July 14, 2023
