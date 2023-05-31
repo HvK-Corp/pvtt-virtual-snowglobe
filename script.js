@@ -40,18 +40,6 @@ function openSnowGlobe() {
   document.getElementById("snow-globe").addEventListener("click", shakeGlobe);
 }
 
-// Function to play background music
-function playBackgroundMusic() {
-  var bgMusic = document.getElementById("bg-music");
-  bgMusic.play(); // Start playing the background music
-}
-
-// Function to pause background music
-function pauseBackgroundMusic() {
-  var bgMusic = document.getElementById("bg-music");
-  bgMusic.pause(); // Pause the background music
-}
-
 // Function to start the snow animation
 function startSnowfall() {
   var snowflakesContainer = document.getElementById("snowflakes-container");
@@ -92,6 +80,20 @@ function shakeGlobe() {
 
   var snowfallContainer = document.querySelector(".snowfall-container");
   snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
+
+  // Add event listener to start snowfall when clicking the globe
+  document.getElementById("snow-globe").removeEventListener("click", shakeGlobe);
+}
+// Function to play background music
+function playBackgroundMusic() {
+  var bgMusic = document.getElementById("bg-music");
+  bgMusic.play(); // Start playing the background music
+}
+
+// Function to pause background music
+function pauseBackgroundMusic() {
+  var bgMusic = document.getElementById("bg-music");
+  bgMusic.pause(); // Pause the background music
 }
 
 // Function to stop the snowfall animation and fade out remaining snowflakes
