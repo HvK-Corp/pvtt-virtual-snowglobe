@@ -51,50 +51,24 @@ function pauseBackgroundMusic() {
   var bgMusic = document.getElementById("bg-music");
   bgMusic.pause(); // Pause the background music
 }
-
-// Declare a variable to hold the timeout ID
-var snowfallTimeout;
-
 // Function to start the snow animation
 function startSnowfall() {
   var snowflakesContainer = document.getElementById("snowflakes-container");
-  var snowfallElements = []; // Array to store snowfall elements
 
-  for (var i = 0; i < 100; i++) { // Increase the loop limit to 100 (adjust as needed)
+  for (var i = 0; i < 50; i++) {
     var snowflake = document.createElement("div");
     snowflake.classList.add("snowfall");
     snowflakesContainer.appendChild(snowflake);
-    snowfallElements.push(snowflake); // Add snowfall element to the array
   }
-
-  // Stop the snowfall animation after approximately 30 seconds
-  snowfallTimeout = setTimeout(function () {
-    stopSnowAnimation(snowfallElements);
-  }, 30000 - 3000); // Adjust the timeout duration
-
-  // Apply the fade-out animation to the snowfall elements 3 seconds before they stop
-  setTimeout(function () {
-    fadeOutSnowfall(snowfallElements);
-  }, 30000 - 3000 - 3000); // Adjust the timeout duration
 }
 
 // Function to stop the snowfall animation
-function stopSnowAnimation(snowfallElements) {
-  // Clear the timeout if it exists
-  if (snowfallTimeout) {
-    clearTimeout(snowfallTimeout);
-  }
+function stopSnowAnimation() {
+  var snowfallElements = document.querySelectorAll(".snowfall");
 
-  // Remove the snowfall elements from the DOM
-  var snowflakesContainer = document.getElementById("snowflakes-container");
-  snowflakesContainer.innerHTML = "";
-}
-
-// Function to apply the fade-out animation to the snowfall elements
-function fadeOutSnowfall(snowfallElements) {
   for (var i = 0; i < snowfallElements.length; i++) {
     var snowfall = snowfallElements[i];
-    snowfall.style.animation = "fadeout 3s"; // Adjust the duration of the fade-out animation as needed
+    snowfall.style.animation = "none";
   }
 }
 
