@@ -1,3 +1,43 @@
+// Function to check if the current date is before July 14, 2023
+function isBeforeJuly14() {
+  var currentDate = new Date();
+  var targetDate = new Date("July 14, 2023");
+
+  return currentDate < targetDate;
+}
+
+// Function to display the countdown timer
+function displayCountdownTimer() {
+  var countdownTimer = document.getElementById("countdown-timer");
+  countdownTimer.style.display = "block";
+  
+  // Add your countdown timer animation code here
+  
+  // Example: Show a simple countdown
+  var countdown = 10; // Number of seconds for the countdown
+  
+  var timerInterval = setInterval(function() {
+    countdown--;
+    countdownTimer.innerText = countdown;
+    
+    if (countdown === 0) {
+      clearInterval(timerInterval);
+      countdownTimer.style.display = "none";
+      openMessage(); // Proceed with opening the message
+    }
+  }, 1000);
+}
+
+// Check if the current date is before July 14, 2023
+if (isBeforeJuly14()) {
+  displayCountdownTimer();
+} else {
+  // Current date is July 14, 2023 or later, proceed as usual
+  document.getElementById("gift-box").style.display = "block";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("snow-globe").style.display = "none";
+  document.getElementsByClassName("background-container")[0].style.display = "block";
+}
 // Function to open the classic message
 function openMessage() {
   document.getElementById("gift-box").style.display = "none";
