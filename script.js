@@ -11,7 +11,6 @@
     document.body.classList.add("blur"); /* Add blur effect to the body */
     document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
   }
-}
 
 // Function to open the classic message
 function openMessage() {
