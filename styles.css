@@ -1,12 +1,3 @@
-.not-now {
-display: none;
-text-align: center;
-font-size: 32px;
-font-family: 'Papyrus', fantasy;
-margin-top: 20px;
-margin: 0 auto;
-padding: 20px;
-}
 /* Styles for the gift box */
 #gift-box {
   width: 60px; /* Adjust the width as needed */
