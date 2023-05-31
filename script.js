@@ -1,3 +1,18 @@
+ var currentDate = new Date();
+  var targetDate = new Date("July 14, 2023");
+
+  if (currentDate >= targetDate) {
+    document.getElementById("gift-box").style.display = "block";
+    document.getElementsByClassName("background-container")[0].style.display = "block";
+  } else {
+    document.getElementById("not-now").style.display = "block";
+    document.getElementById("gift-box").style.display = "none";
+   document.getElementsByClassName("background-container")[0].style.display = "block";
+    document.body.classList.add("blur"); /* Add blur effect to the body */
+    document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
+  }
+}
+
 // Function to open the classic message
 function openMessage() {
   document.getElementById("gift-box").style.display = "none";
