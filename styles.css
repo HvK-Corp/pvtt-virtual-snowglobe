@@ -19,6 +19,7 @@
   top: 73%;
   transform: translate(-50%, -50%);
   z-index: 2;
+  filter: blur(0); /* Initial state: no blur */
   display: none;
 }
 
@@ -208,6 +209,10 @@ body {
 
 .blur #snow-globe {
   filter: none; /* Remove the blur effect from the snow globe */
+}
+
+.blur #gift-box: {
+filter: blur(5px);
 }
 
 .wrapper {
