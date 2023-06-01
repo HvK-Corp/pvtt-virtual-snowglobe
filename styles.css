@@ -1,3 +1,13 @@
+#dont-u {
+  display: none;
+  text-align: center;
+  font-size: 32px;
+  margin-top: 20px;
+  font-family: 'papyrus', fantasy;
+  padding: 20px;
+  margin: 0 auto;
+}
+
 /* Styles for the gift box */
 #gift-box {
   width: 60px; /* Adjust the width as needed */
@@ -8,6 +18,7 @@
   top: 73%;
   transform: translate(-50%, -50%);
   z-index: 2;
+  display: none;
 }
 
 /* Add the following CSS rule for the black screen */
