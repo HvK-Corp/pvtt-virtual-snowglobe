@@ -6,6 +6,7 @@
   font-family: 'papyrus', fantasy;
   padding: 20px;
   margin: 0 auto;
+  z-index: 3;
 }
 
 /* Styles for the gift box */
