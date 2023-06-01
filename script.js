@@ -83,7 +83,6 @@ function shakeGlobe() {
     // Stop the snowfall animation after approximately 30 seconds
     setTimeout(stopSnowAnimation, 30000);
   }, 500);
-}
 // Function to play background music
 function playEffect() {
   var effect = document.getElementById("globe");
