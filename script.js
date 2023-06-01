@@ -3,7 +3,7 @@ var current_date = new Date();
 if(current_date.getTime() < specific_date.getTime())
 {
   document.getElementById("dont-u").style.display = "block";
-  document.getElementById("gift-box").style.display = "none";
+  document.getElementById("gift-box").style.filter = "blur(5px)";
   document.getElementsByClassName("background-container")[0].style.display = "block";
   document.body.classList.add("blur"); /* Add blur effect to the body */
   document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
