@@ -286,8 +286,8 @@ filter: blur(5px);
   background-image: url('gift-box-mobile.png');
   width: 120px; /* Adjust the width as needed */
   height: 120px; /* Adjust the height as needed */
-  left: 69%;
-  top: 60%;
+  left: 78%;
+  top: 68%;
   }
   #message {
   font-size: 18px;
@@ -307,8 +307,8 @@ filter: blur(5px);
   background-image: url('gift-box.png');
   width: 240px; /* Adjust the width as needed */
   height: 240px; /* Adjust the height as needed */
-  left: 59%;
-  top: 73%;
+  left: 69%;
+  top: 88%;
  }
   #message {
   font-size: 24px;
