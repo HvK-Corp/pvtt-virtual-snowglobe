@@ -10,6 +10,7 @@
 
 /* Styles for the gift box */
 #gift-box {
+  background-size: cover;
   cursor: pointer;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -282,13 +283,14 @@ filter: blur(5px);
   font-family: 'Comic Sans MS', cursive;
   }
   #gift-box {
-  width: 40px; /* Adjust the width as needed */
-  height: 40px; /* Adjust the height as needed */
+  background-image: url('gift-box-mobile.png');
+  width: 120px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
   left: 69%;
   top: 60%;
   }
   #message {
-  font-size: 21px;
+  font-size: 18px;
   font-family: 'Cookie', cursive;
   }
    #snow-globe {
@@ -302,8 +304,9 @@ filter: blur(5px);
   font-family: 'papyrus', fantasy;
   }
   #gift-box {
-  width: 60px; /* Adjust the width as needed */
-  height: 60px; /* Adjust the height as needed */
+  background-image: url('gift-box.png');
+  width: 240px; /* Adjust the width as needed */
+  height: 240px; /* Adjust the height as needed */
   left: 59%;
   top: 73%;
  }
