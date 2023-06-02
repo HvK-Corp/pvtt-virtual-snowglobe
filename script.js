@@ -104,7 +104,7 @@ if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
 
     // Check if the device is shaken
     if (overallAcceleration > shakeThreshold) {
-      shakeSnowGlobe();
+      shakeGlobe();
     }
   });
 } else {
@@ -112,7 +112,7 @@ if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
 
   // Add an event listener to the shake button
   document.getElementById("snow-globe").addEventListener("click", function() {
-    shakeSnowGlobe();
+    shakeGlobe();
   });
 }
 
