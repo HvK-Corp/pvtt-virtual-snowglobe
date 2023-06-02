@@ -33,7 +33,6 @@
 #message {
   display: none;
   text-align: center;
-  font-size: 24px;
   margin-top: 20px;
   background-color: beige;
   padding: 20px;
@@ -64,8 +63,6 @@ audio {
   background-size: cover;
   background-position: center;
   display: none;
-  width: 400px; /* Adjust the width as needed */
-  height: 400px; /* Adjust the height as needed */
   margin-top: 20px;
   margin: 0 auto;
   text-align: center;
@@ -164,17 +161,6 @@ audio {
   100% {
     top: -100px;
   }
-}
-
-#snow-globe p {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 body {
@@ -296,13 +282,18 @@ filter: blur(5px);
   font-family: 'Comic Sans MS', cursive;
   }
   #gift-box {
-  width: 60px; /* Adjust the width as needed */
-  height: 60px; /* Adjust the height as needed */
-  left: 65%;
-  top: 64%;
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  left: 69%;
+  top: 60%;
   }
   #message {
-  font-family: 'Cinzel Decorative', serif;
+  font-size: 21px;
+  font-family: 'Cookie', cursive;
+  }
+   #snow-globe {
+  width: 200px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
   }
 }
 
@@ -317,6 +308,11 @@ filter: blur(5px);
   top: 73%;
  }
   #message {
+  font-size: 24px;
   font-family: 'Old English Text MT', serif;
+  }
+  #snow-globe {
+    width: 400px; /* Adjust the width as needed */
+  height: 400px; /* Adjust the height as needed */
   }
 }
