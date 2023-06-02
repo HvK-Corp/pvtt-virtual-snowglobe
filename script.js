@@ -1,4 +1,4 @@
-var specific_date = new Date('2023-07-14');
+var specific_date = new Date('2023-06-02');
 var current_date = new Date();
 if(current_date.getTime() < specific_date.getTime())
 {
@@ -114,7 +114,7 @@ if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
   // This code will execute on PCs
 
   // Add an event listener to the shake button
-  document.getElementById("shakeButton").addEventListener("click", function() {
+  document.getElementById("shakeGlobe").addEventListener("click", function() {
     shakeSnowGlobe();
   });
 }
