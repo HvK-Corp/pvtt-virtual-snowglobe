@@ -130,7 +130,6 @@ function startSnowfall() {
     snowflakesContainer.appendChild(snowflake);
     snowflake.style.left = Math.random() * 100 + "%";
     snowflake.style.animationDelay = Math.random() * 6 + "s";
-    snowflakesContainer.appendChild(snowfall);
   }
 }
 
