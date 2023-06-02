@@ -138,7 +138,7 @@ function pauseEffect() {
   var effect = document.getElementById("globe");
   effect.pause(); // Pause the background music
 }
-  var snowfallContainer = document.querySelector(".snowfall-container");
+  var snowfallContainer = document.querySelector(".snowflakes-container");
   snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
 
   for (var i = 1; i <= 20; i++) {
