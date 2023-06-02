@@ -6,6 +6,9 @@
   padding: 20px;
   margin: 0 auto;
   z-index: 3;
+  color: darkgreen;
+  font-weight: bolder;
+  font-style: italic;
 }
 
 /* Styles for the gift box */
@@ -190,7 +193,7 @@ body {
 }
 
 .blur .background-container:not(#snow-globe) {
-  filter: blur(5px); /* Apply a blur effect to the background only */
+  filter: blur(10px); /* Apply a blur effect to the background only */
 }
 
 .blur #snow-globe {
@@ -198,7 +201,7 @@ body {
 }
 
 .blur #gift-box: {
-filter: blur(5px);
+filter: blur(10px);
 }
 
 .wrapper {
