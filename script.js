@@ -122,15 +122,15 @@ function pauseEffect() {
 
 function startSnowfall() {
   var snowflakesContainer = document.getElementById("snowflakes-container");
-  snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
+  snowflakesContainer.innerHTML = ""; // Clear previous snowfalls if any
   
   for (var i = 0; i < 50; i++) {
     var snowflake = document.createElement("div");
     snowflake.classList.add("snowfall");
     snowflakesContainer.appendChild(snowflake);
-    snowfall.style.left = Math.random() * 100 + "%";
-    snowfall.style.animationDelay = Math.random() * 6 + "s";
-    snowfallContainer.appendChild(snowfall);
+    snowflake.style.left = Math.random() * 100 + "%";
+    snowflake.style.animationDelay = Math.random() * 6 + "s";
+    snowflakesContainer.appendChild(snowfall);
   }
 }
 
