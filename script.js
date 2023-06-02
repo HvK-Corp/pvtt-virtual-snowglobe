@@ -143,4 +143,4 @@ function stopSnowAnimation() {
     snowfall.style.animation = "none";
   }
 }
-
+}
