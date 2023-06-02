@@ -93,32 +93,61 @@ audio {
 
 .snowflakes-container > .snowfall {
   position: absolute;
-  bottom: 0; /* Set the initial vertical position to the bottom */
-  left: 50%; /* Adjust the horizontal position */
+  top: -30px; /* Adjust the initial vertical position above the container */
+  left: 50%;
   transform: translateX(-50%);
-  width: 30px; /* Adjust the size of snowflakes */
-  height: 30px; /* Adjust the size of snowflakes */
-  background-color: white; /* Use white color for snowflakes */
-  border-radius: 50%; /* Make the snowflakes circular */
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
   animation-name: snowfall;
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  opacity: 0; /* Set initial opacity to 0 */
+  opacity: 0;
 }
 
-/* Adjust the vertical positions of snowflakes */
 .snowflakes-container > div:nth-child(1) {
-  top: calc(50% - 90px);
+  top: calc(50% - 120px); /* Adjust the vertical position of the first snowflake */
 }
 
 .snowflakes-container > div:nth-child(2) {
-  top: calc(50% - 60px);
+  top: calc(50% - 90px); /* Adjust the vertical position of the second snowflake */
 }
 
 .snowflakes-container > div:nth-child(3) {
-  top: calc(50% - 30px);
+  top: calc(50% - 60px); /* Adjust the vertical position of the third snowflake */
+}
+
+/* Add more styles for additional snowflakes */
+.snowflakes-container > div:nth-child(4) {
+  top: calc(50% - 30px); /* Adjust the vertical position of the fourth snowflake */
+}
+
+.snowfall {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+  animation-name: snowfall;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform: translateX(-50%);
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
 }
 
 @keyframes snowfall-updown {
@@ -221,31 +250,6 @@ filter: blur(5px);
   }
   100% {
     transform: translateY(0);
-  }
-}
-
-.snowfall {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: #fff;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.8;
-  animation-name: snowfall;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  transform: translateX(-50%);
-}
-
-@keyframes snowfall {
-  0% {
-    transform: translateY(-100vh);
-  }
-  100% {
-    transform: translateY(100vh);
   }
 }
 
