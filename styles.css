@@ -3,7 +3,6 @@
   text-align: center;
   font-size: 32px;
   margin-top: 20px;
-  font-family: 'papyrus', fantasy;
   padding: 20px;
   margin: 0 auto;
   z-index: 3;
@@ -11,12 +10,8 @@
 
 /* Styles for the gift box */
 #gift-box {
-  width: 60px; /* Adjust the width as needed */
-  height: 60px; /* Adjust the height as needed */
   cursor: pointer;
   position: absolute;
-  left: 59%;
-  top: 73%;
   transform: translate(-50%, -50%);
   z-index: 2;
   filter: blur(0); /* Initial state: no blur */
@@ -48,7 +43,7 @@
   width: 70%;
   margin: 0 auto;
   transform: scale(0); /* Start with scale(0) to hide the message */
-  animation: zoom-out 2s forwards; /* Apply the zoom-out animation after 10 seconds */
+  animation: zoom-out 1s forwards; /* Apply the zoom-out animation after 10 seconds */
 }
 
 @keyframes zoom-out {
@@ -147,35 +142,6 @@ audio {
   font-weight: bold;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-/* Styles for mobile devices */
-@media (max-width: 800px) {
-  #gift-box,
-  #message,
-  #snow-globe {
-    display: none;
-  }
-
-  #warning-message {
-    font-size: 32px;
-    color: darkslategrey;
-    font-weight: bolder;
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    display: block; /* Show the warning message on mobile devices */
-  }
-}
-
-/* Styles for non-mobile devices (PCs) */
-@media (min-width: 800px) {
-  .warning-message {
-    display: none; /* Hide the warning message on non-mobile devices */
-  }
-
-  #gift-box {
-    display: block; /* Show the gift box on non-mobile devices (PCs) */
-  }
 }
 
 body {
@@ -314,4 +280,29 @@ filter: blur(5px);
   to {
     opacity: 0;
   }
+}
+
+/* Styles for mobile devices */
+@media (max-width: 800px) {
+  #dont-u {
+  font-family: 'Comic Sans MS', cursive;
+  }
+  #gift-box {
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  left: 65%;
+  top: 69%;
+  }
+}
+
+@media (min-width: 800px) {
+  #dont-u {
+  font-family: 'papyrus', fantasy;
+  }
+  #gift-box {
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  left: 59%;
+  top: 73%;
+ }
 }
