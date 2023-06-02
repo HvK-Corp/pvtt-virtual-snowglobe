@@ -50,7 +50,6 @@ function openSnowGlobe() {
   document.body.classList.add("blur"); /* Add blur effect to the body */
   document.getElementsByClassName("background-container")[0].classList.add("blur"); /* Add blur effect to the background image */
   playBackgroundMusic(); // Start playing the background music
-  startSnowfall(); // Start the snowfall animation
 }
 
 // Function to play background music
@@ -64,28 +63,8 @@ function pauseBackgroundMusic() {
   var bgMusic = document.getElementById("bg-music");
   bgMusic.pause(); // Pause the background music
 }
-// Function to start the snow animation
-function startSnowfall() {
-  var snowflakesContainer = document.getElementById("snowflakes-container");
 
-  for (var i = 0; i < 50; i++) {
-    var snowflake = document.createElement("div");
-    snowflake.classList.add("snowfall");
-    snowflakesContainer.appendChild(snowflake);
-  }
-}
-
-// Function to stop the snowfall animation
-function stopSnowAnimation() {
-  var snowfallElements = document.querySelectorAll(".snowfall");
-
-  for (var i = 0; i < snowfallElements.length; i++) {
-    var snowfall = snowfallElements[i];
-    snowfall.style.animation = "none";
-  }
-}
-
-if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+  if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
   // This code will execute on mobile devices
 
   // Add the device motion event listener
@@ -138,15 +117,30 @@ function pauseEffect() {
   var effect = document.getElementById("globe");
   effect.pause(); // Pause the background music
 }
-  var snowfallContainer = document.querySelector(".snowflakes-container");
-  snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
+  
+// Function to start the snow animation
 
-  for (var i = 1; i <= 20; i++) {
-    var snowfall = document.createElement("div");
-    snowfall.classList.add("snowfall");
+function startSnowfall() {
+  var snowflakesContainer = document.getElementById("snowflakes-container");
+  snowfallContainer.innerHTML = ""; // Clear previous snowfalls if any
+  
+  for (var i = 0; i < 50; i++) {
+    var snowflake = document.createElement("div");
+    snowflake.classList.add("snowfall");
+    snowflakesContainer.appendChild(snowflake);
     snowfall.style.left = Math.random() * 100 + "%";
     snowfall.style.animationDelay = Math.random() * 6 + "s";
     snowfallContainer.appendChild(snowfall);
   }
 }
+
+// Function to stop the snowfall animation
+function stopSnowAnimation() {
+  var snowfallElements = document.querySelectorAll(".snowfall");
+
+  for (var i = 0; i < snowfallElements.length; i++) {
+    var snowfall = snowfallElements[i];
+    snowfall.style.animation = "none";
+  }
 }
+
