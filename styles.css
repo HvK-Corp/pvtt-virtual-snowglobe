@@ -125,6 +125,11 @@ audio {
   top: calc(50% - 30px); /* Adjust the vertical position of the fourth snowflake */
 }
 
+/* Adjust the initial position of snowflakes below the vertical radius of the snow globe */
+.snowflakes-container > .snowfall {
+  top: calc(50% + 30px); /* Adjust the initial vertical position below the vertical radius */
+}
+
 .snowfall {
   position: absolute;
   width: 10px;
