@@ -88,6 +88,37 @@ function stopSnowAnimation() {
   }
 }
 
+if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+  // This code will execute on mobile devices
+
+  // Add the device motion event listener
+  window.addEventListener("devicemotion", function(event) {
+    var acceleration = event.accelerationIncludingGravity;
+
+    // Calculate the overall acceleration
+    var overallAcceleration = Math.sqrt(
+      Math.pow(acceleration.x, 2) +
+      Math.pow(acceleration.y, 2) +
+      Math.pow(acceleration.z, 2)
+    );
+
+    // Set a threshold value for the acceleration that determines the shake intensity
+    var shakeThreshold = 15; // Adjust this value as needed
+
+    // Check if the device is shaken
+    if (overallAcceleration > shakeThreshold) {
+      shakeSnowGlobe();
+    }
+  });
+} else {
+  // This code will execute on PCs
+
+  // Add an event listener to the shake button
+  document.getElementById("shakeButton").addEventListener("click", function() {
+    shakeSnowGlobe();
+  });
+}
+
 // Function to shake the globe and trigger animations
 function shakeGlobe() {
   document.getElementById("snow-globe").classList.add("shake");
@@ -120,17 +151,4 @@ function pauseEffect() {
     snowfall.style.animationDelay = Math.random() * 6 + "s";
     snowfallContainer.appendChild(snowfall);
   }
-}
-}
-
-// Check if the device is mobile and show/hide elements accordingly
-if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
-  document.getElementById("gift-box").style.display = "none";
-  document.getElementById("message").style.display = "none";
-  document.getElementById("snow-globe").style.display = "none";
-  document.getElementById("warning-message").style.display = "block";
-} else {
-  document.getElementById("gift-box").style.display = "block";
-  document.getElementById("message").style.display = "none";
-  document.getElementById("snow-globe").style.display = "none";
 }
