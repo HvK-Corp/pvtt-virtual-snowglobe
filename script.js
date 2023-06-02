@@ -1,4 +1,4 @@
-var specific_date = new Date('2023-06-02');
+var specific_date = new Date('2023-07-14');
 var current_date = new Date();
 if (current_date.getTime() < specific_date.getTime()) {
   document.getElementById("dont-u").style.display = "block";
