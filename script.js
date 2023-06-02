@@ -111,7 +111,7 @@ if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
   // This code will execute on PCs
 
   // Add an event listener to the shake button
-  document.getElementById("shakeGlobe").addEventListener("click", function() {
+  document.getElementById("snow-globe").addEventListener("click", function() {
     shakeSnowGlobe();
   });
 }
